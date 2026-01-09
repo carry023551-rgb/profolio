@@ -1,0 +1,3596 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wenjun (Jessica) Huang - Portfolio</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;500;600;700&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Mali', cursive, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fef3e2 0%, #fae8ff 50%, #e0f2fe 100%);
+      background-attachment: fixed;
+    }
+
+    .main-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #0ea5e9, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .heading-font {
+      font-family: 'Caveat', cursive, sans-serif;
+    }
+
+    /* Animations */
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-15px) scale(1.05); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    @keyframes ripple {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(14, 165, 233, 0.5); }
+      50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8); }
+    }
+
+    @keyframes level-up {
+      0% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.2) rotate(180deg); }
+      100% { transform: scale(1) rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes countUp {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes pulse-text {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    @keyframes level-up-flash {
+      0% { 
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7),
+                    0 0 0 0 rgba(168, 85, 247, 0.7);
+      }
+      70% { 
+        box-shadow: 0 0 0 20px rgba(14, 165, 233, 0),
+                    0 0 0 40px rgba(168, 85, 247, 0);
+      }
+      100% { 
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0),
+                    0 0 0 0 rgba(168, 85, 247, 0);
+      }
+    }
+
+    @keyframes float-exp {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -100%) scale(1.2);
+      }
+      80% {
+        opacity: 0.8;
+        transform: translate(-50%, -180%) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -200%) scale(0.8);
+      }
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .bounce-animation {
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .shimmer {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+      background-size: 1000px 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    .ripple::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid #0ea5e9;
+      transform: translate(-50%, -50%);
+      animation: ripple 2s infinite;
+    }
+
+    .pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .page-section {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .avatar-container:hover {
+      transform: scale(1.05);
+    }
+
+    .avatar-container:active {
+      transform: scale(0.97);
+    }
+
+    .avatar-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid #0ea5e9;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .avatar-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-center: center;
+      font-size: 120px;
+      box-shadow: 0 10px 40px rgba(14, 165, 233, 0.4);
+    }
+
+    .floating-emoji {
+      position: absolute;
+      font-size: 32px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-emoji:nth-child(1) { top: 10%; left: -10%; animation-delay: 0s; }
+    .floating-emoji:nth-child(2) { top: 10%; right: -10%; animation-delay: 0.5s; }
+    .floating-emoji:nth-child(3) { bottom: 10%; left: -10%; animation-delay: 1s; }
+    .floating-emoji:nth-child(4) { bottom: 10%; right: -10%; animation-delay: 1.5s; }
+
+    /* Enhanced EXP Container */
+    .exp-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.97);
+      padding: 20px 24px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 
+                  0 0 0 2px rgba(14, 165, 233, 0.3),
+                  0 0 30px rgba(168, 85, 247, 0.2);
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      min-width: 200px;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .exp-container:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2), 
+                  0 0 0 3px rgba(14, 165, 233, 0.4),
+                  0 0 40px rgba(168, 85, 247, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .exp-container.level-up-flash {
+      animation: level-up-flash 1.5s ease-out;
+    }
+
+    .exp-bar {
+      height: 12px;
+      background: linear-gradient(90deg, #e5e7eb, #f3f4f6);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .exp-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0ea5e9, #a855f7, #ec4899);
+      background-size: 200% 100%;
+      border-radius: 999px;
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      animation: gradient-shift 3s ease infinite;
+    }
+
+    .exp-fill::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+      animation: shimmer 2s infinite;
+      border-radius: 999px;
+    }
+
+    .exp-fill::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      background: linear-gradient(90deg, #0ea5e9, #a855f7, #ec4899);
+      border-radius: 999px;
+      filter: blur(8px);
+      opacity: 0.4;
+      z-index: -1;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .floating-exp {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #0ea5e9;
+      font-weight: 800;
+      font-size: 1.2em;
+      pointer-events: none;
+      z-index: 1001;
+      opacity: 0;
+      animation: float-exp 1.5s ease-out forwards;
+    }
+
+    .toast {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: white;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      transform: translateX(400px);
+      transition: transform 0.3s ease;
+    }
+
+    .toast.show {
+      transform: translateX(0);
+    }
+
+    /* Ripple Effect */
+    .ripple-effect {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ripple-effect::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .ripple-effect:active::after {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* Progress Stats Animation */
+    .stat-number {
+      animation: countUp 0.5s ease-out;
+    }
+
+    /* Achievement Badge Unlock */
+    @keyframes unlock {
+      0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+      50% { transform: scale(1.2) rotate(10deg); }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .unlock-animation {
+      animation: unlock 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Achievement Card Animation */
+    @keyframes slideInFromRight {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOutToRight {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
+
+    .achievement-card {
+      animation: slideInFromRight 0.5s ease-out;
+      pointer-events: auto;
+      margin-bottom: 12px;
+    }
+
+    .achievement-card.hiding {
+      animation: slideOutToRight 0.5s ease-out;
+    }
+
+    /* Confetti Animation */
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(600px) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      z-index: 2002;
+      pointer-events: none;
+    }
+
+    /* Nav Button Active State */
+    .nav-btn-active {
+      background: linear-gradient(to right, #0ea5e9, #a855f7) !important;
+      color: white !important;
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .avatar-container {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .avatar-circle {
+        width: 170px;
+        height: 170px;
+        font-size: 80px;
+      }
+      
+      .floating-emoji {
+        font-size: 24px;
+      }
+      
+      .exp-container {
+        top: 10px;
+        right: 10px;
+        padding: 16px 18px;
+        min-width: 180px;
+      }
+      
+      .hero-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toast {
+        right: 10px;
+        left: 10px;
+        transform: translateY(-100px);
+      }
+
+      .toast.show {
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Skill bars animation */
+    .skill-bar-fill {
+      transition: width 1s ease-out;
+    }
+
+    /* Counter animation */
+    @keyframes counterSpin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    .counter-animate {
+      animation: counterSpin 0.5s ease-out;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="main-wrapper"><!-- EXP Container -->
+   <div class="exp-container">
+    <div class="flex items-center justify-between mb-2"><span class="text-sm font-semibold text-gray-700">Level <span id="level">1</span></span> <button onclick="resetProgress()" class="text-xs text-gray-500 hover:text-rose-600 transition-colors" title="Reset all progress">
+      🔄 Reset
+    </button>
+    </div>
+    <div class="exp-bar">
+     <div class="exp-fill" id="exp-fill" style="width: 0%"></div>
+    </div>
+    <div class="flex justify-between items-center mt-2">
+     <div class="text-xs text-gray-600">
+      🌟 <span id="exploration-points" class="font-bold text-purple-600">0</span> Points
+     </div>
+     <div class="text-xs text-gray-600">
+      <span id="current-exp" class="font-bold text-sky-600">0</span>/<span id="max-exp" class="font-bold">100</span> EXP
+     </div>
+    </div>
+   </div><!-- Toast Notification -->
+   <div class="toast" id="toast">
+    <div class="text-sm font-semibold text-gray-800" id="toast-message"></div>
+   </div><!-- Achievement Unlock Notification -->
+   <div class="fixed top-24 right-5 z-[1002] pointer-events-none" id="achievement-container"></div><!-- Level Up Celebration -->
+   <div id="level-up-celebration" class="fixed inset-0 bg-black bg-opacity-70 z-[2001] flex items-center justify-center" style="display: none;">
+    <div class="unlock-animation bg-white rounded-3xl p-12 shadow-2xl text-center max-w-lg mx-4">
+     <div class="text-8xl mb-6" id="celebration-emoji">
+      🎉
+     </div>
+     <h2 class="text-4xl font-bold gradient-text mb-4" id="celebration-title">Level Up!</h2>
+     <p class="text-gray-600 text-lg mb-6" id="celebration-message">You've reached a new level!</p><button onclick="closeCelebration()" class="px-8 py-4 bg-gradient-to-r from-sky-500 to-purple-500 text-white font-bold rounded-full hover:shadow-xl transform hover:scale-105 transition-all"> Continue Exploring! 🚀 </button>
+    </div>
+   </div><!-- Project Modal -->
+   <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[2000] flex items-center justify-center p-4" style="display: none;">
+    <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onclick="event.stopPropagation()">
+     <div id="modal-content"></div>
+    </div>
+   </div><!-- Sticky Header -->
+   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+    <nav class="container mx-auto px-4 py-4">
+     <div class="flex flex-wrap items-center justify-center gap-3"><button onclick="navigateToPage('home')" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-purple-500 text-white font-semibold hover:shadow-lg transition-all" data-page="home"> 🏠 Home </button> <button onclick="navigateToPage('resume')" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-gray-100 transition-all border-2 border-gray-200" data-page="resume"> 📄 Resume </button> <button onclick="navigateToPage('portfolio')" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-gray-100 transition-all border-2 border-gray-200" data-page="portfolio"> 💼 Portfolio </button> <button onclick="navigateToPage('campus')" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-gray-100 transition-all border-2 border-gray-200" data-page="campus"> 🎓 Campus </button> <button onclick="navigateToPage('achievements')" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-gray-100 transition-all border-2 border-gray-200" data-page="achievements"> 🏆 Achievements </button> <button onclick="navigateToPage('contact')" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-white text-gray-700 font-semibold hover:bg-gray-100 transition-all border-2 border-gray-200" data-page="contact"> ✉️ Contact </button> <button onclick="checkSecretPage()" id="secret-nav-btn" class="nav-btn ripple-effect px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold hover:shadow-lg transition-all animate-pulse" data-page="secret" style="display: none;"> 🎁 Unlock at Lv.5 </button>
+     </div>
+    </nav>
+   </header>
+   
+  <!-- Secret Hint Bar - 固定在导航栏下方 -->
+  <div id="secret-hint" class="fixed top-16 left-0 right-0 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-bold py-2 text-center shadow-lg z-40 animate-pulse hidden">
+   🔓 Explore more to reach Level 5 and unlock a secret blessing! 
+   <button onclick="scrollToEXP()" class="ml-2 px-2 py-1 bg-white text-amber-600 text-xs rounded-full hover:bg-amber-50 transition-colors">
+     Check Progress →
+   </button>
+  </div>
+
+   <!-- Main Content -->
+   <main class="container mx-auto px-4 py-8"><!-- Hero Section -->
+    <section id="home" class="mb-16">
+  <!-- 头像和基本信息放在顶部 -->
+  <div class="text-center mb-12">
+    <!-- 头像居中显示 -->
+    <div class="flex justify-center mb-6">
+      <div class="avatar-container relative ripple cursor-pointer" onclick="clickAvatar()" title="Click me!">
+        <div class="avatar-ring"></div>
+        <div class="avatar-circle overflow-hidden">
+          <img src="https://i.ibb.co/JWGQpFwq/84174d5fef78be482ba2036f21de20ab.jpg" alt="Wenjun (Jessica) Huang" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'text-9xl\'>👩‍🔧</div>';">
+        </div>
+        <div class="floating-emoji">⚙️</div>
+        <div class="floating-emoji">⚙️</div>
+        <div class="floating-emoji">🔧</div>
+        <div class="floating-emoji">💡</div>
+      </div>
+    </div>
+    
+    <!-- 基本信息 -->
+    <div class="space-y-4">
+      <p class="text-lg text-gray-600" id="hero-greeting">Hello! I'm</p>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text" id="hero-name">Wenjun (Jessica) Huang</h1>
+      <p class="text-xl text-purple-600 font-semibold" id="hero-tagline">Gears and stories – bridging engineering with human experiences</p>
+      <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto" id="hero-description">Sophomore at Beijing University of Chemical Technology, majoring in Mechanical Design, Manufacturing, and Automation. I believe the best work exists at the intersection of logic and creativity, where art needs engineering and engineering needs art.</p>
+    </div>
+  </div>
+
+  <!-- 视频部分 - 居中显示，更突出 -->
+  <div class="mb-12">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-sky-100 to-purple-100 rounded-2xl p-8 shadow-xl">
+        <div class="text-center mb-6">
+          <h3 class="heading-font text-2xl font-bold gradient-text mb-2 flex items-center justify-center">
+            <span class="mr-2">🎬</span> Meet Me in 1 Minute
+          </h3>
+          <p class="text-gray-600">A quick introduction to my journey in robotics and engineering</p>
+        </div>
+        <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-lg">
+          <iframe 
+            src="//player.bilibili.com/player.html?isOutside=true&aid=115847196644668&bvid=BV163qABAEGy&cid=35222061869&p=1" 
+            scrolling="no" 
+            border="0" 
+            frameborder="no" 
+            framespacing="0" 
+            allowfullscreen="true"
+            class="absolute top-0 left-0 w-full h-full">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA 按钮和快速统计 -->
+  <div class="max-w-3xl mx-auto">
+    <!-- CTA Buttons -->
+    <div class="flex flex-wrap gap-4 justify-center mb-8">
+      <button onclick="navigateToPage('portfolio')" class="ripple-effect px-6 py-3 bg-gradient-to-r from-sky-500 to-purple-500 text-white font-semibold rounded-full hover:shadow-xl transform hover:scale-105 transition-all">
+        🚀 View My Work
+      </button>
+      <button onclick="navigateToPage('contact')" class="ripple-effect px-6 py-3 bg-white text-gray-700 font-semibold rounded-full border-2 border-gray-300 hover:border-sky-500 hover:shadow-lg transition-all">
+        💬 Let's Connect
+      </button>
+    </div>
+    
+    <!-- Quick Stats -->
+    <div class="flex flex-wrap gap-6 justify-center">
+      <div class="text-center">
+        <div class="text-3xl font-bold gradient-text">3</div>
+        <div class="text-sm text-gray-600">Projects</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold gradient-text">2027</div>
+        <div class="text-sm text-gray-600">Class Of</div>
+      </div>
+      <div class="text-center">
+        <div class="text-3xl font-bold gradient-text">BUCT</div>
+        <div class="text-sm text-gray-600">University</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 原有的 Subpage Links 部分（需要保留） -->
+  <div class="flex flex-wrap gap-3 mt-6 justify-center">
+    <a href="#" onclick="navigateToPage('portfolio'); return false;" class="text-sm text-sky-600 hover:text-purple-600 font-semibold transition-colors">📂 View Portfolio →</a>
+    <a href="#" onclick="navigateToPage('resume'); return false;" class="text-sm text-sky-600 hover:text-purple-600 font-semibold transition-colors">📝 My Resume →</a>
+    <a href="#" onclick="navigateToPage('achievements'); return false;" class="text-sm text-sky-600 hover:text-purple-600 font-semibold transition-colors">🌟 See Achievements →</a>
+    <a href="#" onclick="navigateToPage('education-details'); return false;" class="text-sm text-sky-600 hover:text-purple-600 font-semibold transition-colors">🎓 Education Details →</a>
+    <a href="#" onclick="navigateToPage('ros2-projects'); return false;" class="text-sm text-sky-600 hover:text-purple-600 font-semibold transition-colors">🤖 ROS2 Projects →</a>
+    <a href="#" onclick="navigateToPage('research-lab'); return false;" class="text-sm text-sky-600 hover:text-purple-600 font-semibold transition-colors">🔬 Research Lab →</a>
+  </div>
+
+  <!-- Quick Navigation Cards (接下来的内容保持不变) -->
+  <!-- Quick Navigation Cards -->
+     <div class="mb-16">
+      <h2 class="heading-font text-3xl font-bold gradient-text text-center mb-8">Explore My Journey</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Card 1: Portfolio -->
+       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg cursor-pointer ripple-effect relative" onclick="navigateToPage('portfolio')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+         +10 EXP 💎
+        </div>
+        <div class="text-6xl mb-4 text-center">
+         💼
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Portfolio</h3>
+        <p class="text-gray-600 text-sm text-center mb-4">Discover my robotics projects, from quadruped robots to autonomous systems</p>
+        <div class="text-center"><span class="inline-block px-4 py-2 bg-gradient-to-r from-sky-500 to-purple-500 text-white text-sm font-semibold rounded-full">View Projects →</span>
+        </div>
+       </div><!-- Card 2: Resume -->
+       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg cursor-pointer ripple-effect relative" onclick="navigateToPage('resume')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+         +10 EXP 💎
+        </div>
+        <div class="text-6xl mb-4 text-center">
+         📄
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Resume</h3>
+        <p class="text-gray-600 text-sm text-center mb-4">Explore my education, research experience, and technical skills</p>
+        <div class="text-center"><span class="inline-block px-4 py-2 bg-gradient-to-r from-sky-500 to-purple-500 text-white text-sm font-semibold rounded-full">View Resume →</span>
+        </div>
+       </div><!-- Card 3: Campus Life -->
+       <div class="card-hover bg-white rounded-2xl p-8 shadow-lg cursor-pointer ripple-effect relative" onclick="navigateToPage('campus')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg animate-pulse">
+         +10 EXP 💎
+        </div>
+        <div class="text-6xl mb-4 text-center">
+         🎓
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Campus Life</h3>
+        <p class="text-gray-600 text-sm text-center mb-4">See my university journey, robotics club, and hobbies at BUCT</p>
+        <div class="text-center"><span class="inline-block px-4 py-2 bg-gradient-to-r from-sky-500 to-purple-500 text-white text-sm font-semibold rounded-full">Explore Campus →</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Core Values Section -->
+     <div class="mb-16">
+      <h2 class="heading-font text-3xl font-bold gradient-text text-center mb-8">My Core Values</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="bg-gradient-to-br from-sky-100 to-sky-200 rounded-xl p-6 card-hover relative cursor-pointer" onclick="clickValueCard('slow-progress')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+         +3 EXP
+        </div>
+        <div class="text-4xl mb-3">
+         🐢
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Slow Progress is Still Progress</h3>
+        <p class="text-sm text-gray-700">I value deep understanding over finishing first</p>
+       </div>
+       <div class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6 card-hover relative cursor-pointer" onclick="clickValueCard('art-engineering')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+         +3 EXP
+        </div>
+        <div class="text-4xl mb-3">
+         🎨
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Art Needs Engineering, Engineering Needs Art</h3>
+        <p class="text-sm text-gray-700">The best work exists at the intersection of logic and creativity</p>
+       </div>
+       <div class="bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl p-6 card-hover relative cursor-pointer" onclick="clickValueCard('honesty')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+         +3 EXP
+        </div>
+        <div class="text-4xl mb-3">
+         ✨
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Honesty Over Perfection</h3>
+        <p class="text-sm text-gray-700">I prefer showing real work with flaws over a polished facade</p>
+       </div>
+       <div class="bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl p-6 card-hover relative cursor-pointer" onclick="clickValueCard('serve-people')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg">
+         +3 EXP
+        </div>
+        <div class="text-4xl mb-3">
+         🤝
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Technology Should Serve People</h3>
+        <p class="text-sm text-gray-700">I aim to build things that genuinely improve lives</p>
+       </div>
+      </div>
+     </div><!-- Call to Action -->
+     <div class="bg-gradient-to-r from-sky-500 to-purple-500 rounded-2xl p-12 shadow-2xl text-white text-center">
+      <div class="text-6xl mb-6">
+       🚀
+      </div>
+      <h2 class="heading-font text-4xl font-bold mb-4">Let's Build Something Meaningful</h2>
+      <p class="text-sky-100 text-lg mb-8 max-w-2xl mx-auto">I'm always excited to discuss robotics, collaborate on innovative projects, or simply connect with fellow engineers and creators!</p><button onclick="navigateToPage('contact')" class="ripple-effect px-8 py-4 bg-white text-purple-600 font-bold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all"> 💬 Get In Touch </button>
+     </div>
+    </section><!-- Resume Page -->
+    <section id="resume" class="page-section mb-16" style="display: none;">
+     <div class="mb-8">
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">📄 My Resume</h1>
+      <p class="text-center text-gray-600">Mechanical Engineering Sophomore | Robotics Enthusiast | Beijing, China</p>
+     </div><!-- Professional Summary -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center"><span class="mr-3">👤</span> About Me</h2>
+      <p class="text-gray-700 leading-relaxed">Sophomore at Beijing University of Chemical Technology (BUCT), majoring in Mechanical Design, Manufacturing, and Automation. Passionate about robotics and automation systems with hands-on experience in ROS2, Python, and control systems. An introspective learner who values depth over speed and believes in the intersection of engineering and art.</p>
+     </div><!-- Education Section -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">🎓</span> Education</h2>
+      <div class="relative pl-8 border-l-4 border-sky-500 space-y-6">
+       <div class="relative">
+        <div class="absolute left-[-12px] top-0 w-6 h-6 bg-sky-500 rounded-full border-4 border-white"></div>
+        <h3 class="text-xl font-bold text-gray-800">Bachelor of Engineering - Mechanical Design, Manufacturing, and Automation</h3>
+        <p class="text-purple-600 font-semibold">Beijing University of Chemical Technology (BUCT) | 2023 - 2027 (Expected)</p>
+        <p class="text-gray-600 mt-2">Sophomore (Class of 2027) | Focus: Robotics and Automation Systems</p>
+       </div>
+       <div class="relative">
+        <div class="absolute left-[-12px] top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
+        <h3 class="text-xl font-bold text-gray-800">Planned Exchange Program</h3>
+        <p class="text-sky-600 font-semibold">University of Detroit Mercy (UDM), Michigan, USA | 2027-2028 (Planned)</p>
+        <p class="text-gray-600 mt-2">Advanced robotics studies and international collaboration</p>
+       </div>
+       <div class="mt-6">
+        <h4 class="font-bold text-gray-800 mb-3">Relevant Coursework:</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+         <div class="flex items-center text-gray-700"><span class="text-sky-500 mr-2">•</span> <span>Control Systems Engineering</span>
+         </div>
+         <div class="flex items-center text-gray-700"><span class="text-sky-500 mr-2">•</span> <span>Robotics &amp; Automation</span>
+         </div>
+         <div class="flex items-center text-gray-700"><span class="text-sky-500 mr-2">•</span> <span>Mechanical Design &amp; CAD</span>
+         </div>
+         <div class="flex items-center text-gray-700"><span class="text-sky-500 mr-2">•</span> <span>Engineering Mechanics</span>
+         </div>
+         <div class="flex items-center text-gray-700"><span class="text-sky-500 mr-2">•</span> <span>Materials Science</span>
+         </div>
+         <div class="flex items-center text-gray-700"><span class="text-sky-500 mr-2">•</span> <span>Manufacturing Processes</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Work Experience Section -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">💼</span> Research &amp; Project Experience</h2>
+      <div class="relative pl-8 border-l-4 border-purple-500 space-y-8"><!-- Experience 1 -->
+       <div class="relative">
+        <div class="absolute left-[-12px] top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
+        <h3 class="text-xl font-bold text-gray-800">Research Intern - Autonomous Wheeled Trolley Project</h3>
+        <p class="text-purple-600 font-semibold">Prof. Longfei Qie's Lab, BUCT | May 2024 - Present</p>
+        <p class="text-gray-600 mt-2 mb-3">Developing ROS2-based autonomous navigation systems for indoor robotics applications.</p>
+        <ul class="space-y-2 text-gray-700">
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Developed and integrated ROS2 nodes for sensor processing and motor control</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Implemented path planning algorithms for autonomous indoor navigation</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Collaborated with graduate students on system integration and testing</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Contributed to research documentation and technical presentations</span></li>
+        </ul>
+       </div><!-- Experience 2 -->
+       <div class="relative">
+        <div class="absolute left-[-12px] top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
+        <h3 class="text-xl font-bold text-gray-800">Independent Project - Quadruped Robot Development</h3>
+        <p class="text-sky-600 font-semibold">Personal Project | 2024 - Present</p>
+        <p class="text-gray-600 mt-2 mb-3">Designing and building a spider-like quadruped robot from scratch.</p>
+        <ul class="space-y-2 text-gray-700">
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Designed mechanical structure and leg mechanisms for quadruped locomotion</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Implemented inverse kinematics control system in Python</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Developed gait patterns for stable walking and turning</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Documented design process and technical decisions throughout development</span></li>
+        </ul>
+       </div><!-- Experience 3 -->
+       <div class="relative">
+        <div class="absolute left-[-12px] top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
+        <h3 class="text-xl font-bold text-gray-800">Data Analysis Tool Development</h3>
+        <p class="text-amber-600 font-semibold">Personal Project | 2024</p>
+        <p class="text-gray-600 mt-2 mb-3">Created Python-based automation tool for robotics data processing.</p>
+        <ul class="space-y-2 text-gray-700">
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Developed Python scripts to process sensor data from robotics experiments</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Generated automated visual reports and data visualizations</span></li>
+         <li class="flex items-start"><span class="text-sky-500 mr-2">•</span> <span>Improved lab workflow efficiency through automation</span></li>
+        </ul>
+       </div>
+      </div>
+     </div><!-- Awards & Recognition -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">🏆</span> Awards &amp; Recognition</h2>
+      <div class="border-2 border-amber-200 rounded-xl p-6">
+       <div class="text-4xl mb-3">
+        🎓
+       </div>
+       <h3 class="text-lg font-bold text-gray-800 mb-2">People's Third-Class Scholarship</h3>
+       <p class="text-amber-600 font-semibold mb-2">Beijing University of Chemical Technology | Awarded April 2025</p>
+       <p class="text-gray-600 text-sm">Recognized for academic excellence and outstanding contributions to research projects</p>
+      </div>
+     </div><!-- Technical Skills with Click for EXP -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">💻</span> Technical Skills <span class="ml-auto text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">💡 +5 EXP</span></h2>
+      <div class="space-y-8"><!-- Programming Languages -->
+       <div>
+        <h3 class="text-lg font-bold text-gray-800 mb-4">Programming Languages</h3>
+        <div class="space-y-4">
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('python')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">Python</span> <span class="text-sky-600 font-semibold">Advanced</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-sky-500 to-sky-600 rounded-full" style="width: 0%" data-width="90"></div>
+          </div>
+         </div>
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('cpp')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">C++</span> <span class="text-purple-600 font-semibold">Intermediate</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 0%" data-width="70"></div>
+          </div>
+         </div>
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('matlab')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">MATLAB</span> <span class="text-amber-600 font-semibold">Intermediate</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-amber-500 to-amber-600 rounded-full" style="width: 0%" data-width="70"></div>
+          </div>
+        </div>
+       </div><!-- Robotics & Control -->
+       <div>
+        <h3 class="text-lg font-bold text-gray-800 mb-4">Robotics &amp; Control Systems</h3>
+        <div class="space-y-4">
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('ros2')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">ROS2 (Humble/Hawksbill)</span> <span class="text-sky-600 font-semibold">Proficient</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-sky-500 to-sky-600 rounded-full" style="width: 0%" data-width="80"></div>
+          </div>
+         </div>
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('ik')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">Inverse Kinematics</span> <span class="text-emerald-600 font-semibold">Advanced</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full" style="width: 0%" data-width="85"></div>
+          </div>
+         </div>
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('slam')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">SLAM &amp; Path Planning</span> <span class="text-purple-600 font-semibold">Intermediate</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-purple-500 to-purple-600 rounded-full" style="width: 0%" data-width="75"></div>
+          </div>
+         </div>
+        </div>
+       </div><!-- Design & Engineering Tools -->
+       <div>
+        <h3 class="text-lg font-bold text-gray-800 mb-4">Design &amp; Engineering Tools</h3>
+        <div class="space-y-4">
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('solidworks')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">SolidWorks</span> <span class="text-sky-600 font-semibold">Proficient</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-sky-500 to-sky-600 rounded-full" style="width: 0%" data-width="80"></div>
+          </div>
+         </div>
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('arduino')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">Arduino/ESP32</span> <span class="text-amber-600 font-semibold">Proficient</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-amber-500 to-amber-600 rounded-full" style="width: 0%" data-width="80"></div>
+          </div>
+         </div>
+         <div class="cursor-pointer hover:scale-[1.02] transition-all duration-200 hover:shadow-sm rounded-lg p-2 -m-2" onclick="clickSkill('linux')">
+          <div class="flex justify-between mb-2"><span class="text-gray-700 font-semibold">VS Code &amp; Linux</span> <span class="text-rose-600 font-semibold">Proficient</span>
+          </div>
+          <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+           <div class="skill-bar-fill h-full bg-gradient-to-r from-rose-500 to-rose-600 rounded-full" style="width: 0%" data-width="75"></div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Working Modes -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><span class="mr-3">🧠</span> Working Modes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+       <div class="border-2 border-sky-200 rounded-xl p-6 text-center">
+        <div class="text-4xl mb-3">
+         🎯
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Focus Mode</h3>
+        <p class="text-gray-600 text-sm">Deep work with intense concentration on a single problem</p>
+       </div>
+       <div class="border-2 border-purple-200 rounded-xl p-6 text-center">
+        <div class="text-4xl mb-3">
+         🌈
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Creative Mode</h3>
+        <p class="text-gray-600 text-sm">Brainstorming, experimenting with wild ideas, painting or sketching solutions</p>
+       </div>
+       <div class="border-2 border-emerald-200 rounded-xl p-6 text-center">
+        <div class="text-4xl mb-3">
+         🤝
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Collaboration Mode</h3>
+        <p class="text-gray-600 text-sm">Team discussions, sharing ideas, and learning from others</p>
+       </div>
+      </div>
+     </div><!-- Contact CTA -->
+     <div class="bg-gradient-to-r from-sky-500 to-purple-500 rounded-2xl p-8 shadow-xl text-white text-center">
+      <div class="text-6xl mb-4">
+       📧
+      </div>
+      <h2 class="text-3xl font-bold mb-3">Want to Know More?</h2>
+      <p class="text-sky-100 mb-6">Feel free to reach out for collaborations, questions, or just to chat about robotics!</p><button onclick="navigateToPage('contact')" class="ripple-effect px-8 py-4 bg-white text-sky-600 font-bold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all mb-4"> 📬 Contact Me </button>
+      <div class="mt-6 pt-6 border-t border-sky-400">
+       <p class="text-sky-100 text-sm mb-3">Explore More Details:</p>
+       <div class="flex flex-wrap justify-center gap-3"><a href="#" onclick="navigateToPage('education-details'); return false;" class="text-sm text-white hover:text-sky-200 font-semibold transition-colors">🎓 Education Details →</a> <a href="#" onclick="navigateToPage('research-lab'); return false;" class="text-sm text-white hover:text-sky-200 font-semibold transition-colors">🔬 Research Lab →</a> <a href="#" onclick="navigateToPage('technical-skills'); return false;" class="text-sm text-white hover:text-sky-200 font-semibold transition-colors">💻 Technical Skills →</a>
+       </div>
+      </div>
+     </div>
+    </section><!-- Portfolio Page -->
+    <section id="portfolio" class="page-section mb-16" style="display: none;">
+     <div class="mb-8">
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">💼 My Portfolio</h1>
+      <p class="text-center text-gray-600">Robotics Projects &amp; Research Work</p>
+     </div><!-- Intro Card -->
+     <div class="bg-gradient-to-r from-sky-500 to-purple-500 rounded-2xl p-8 shadow-xl text-white text-center mb-8">
+      <div class="text-5xl mb-4">
+       🎯
+      </div>
+      <h2 class="text-2xl font-bold mb-3">Explore My Work</h2>
+      <p class="text-sky-100">Click on project cards to view details and earn exploration points!</p>
+     </div><!-- Portfolio Philosophy -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+       <div class="text-7xl">
+        💭
+       </div>
+       <div class="flex-1">
+        <h2 class="text-2xl font-bold text-gray-800 mb-3">My Approach to Projects</h2>
+        <p class="text-gray-700 leading-relaxed">I believe in learning by doing, making mistakes, and iterating. Each project represents not just the final outcome, but countless hours of debugging, redesigning, and discovering better solutions. I value <strong>honesty over perfection</strong>—showing real work with its challenges rather than a polished facade.</p>
+       </div>
+      </div>
+     </div><!-- Projects Grid -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Featured Projects</h2>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"><!-- Project 1: Autonomous Trolley -->
+      <div class="project-card card-hover bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer relative group ripple-effect" onclick="openProjectModal('project1')" data-project-id="project1">
+       <div class="h-48 bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white text-7xl relative">
+        🛒 
+        <div class="absolute top-3 right-3 bg-white/90 text-emerald-700 text-xs font-semibold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+         +15 EXP 💎
+        </div>
+       </div>
+       <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-indigo-500 text-white text-xs font-bold rounded-full">Research</span>
+       </div>
+       <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Autonomous Wheeled Trolley</h3>
+        <p class="text-gray-600 text-sm mb-4">ROS2-based autonomous navigation system for indoor robotics (May 2024 - Present)</p>
+        <div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs rounded-full">ROS2</span> <span class="px-2 py-1 bg-teal-100 text-teal-700 text-xs rounded-full">Python</span> <span class="px-2 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">SLAM</span>
+        </div>
+       </div>
+       <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center"><button class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full transform scale-90 group-hover:scale-100 transition-transform"> View Details → </button>
+       </div>
+      </div><!-- Project 2: Quadruped Robot -->
+      <div class="project-card card-hover bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer relative group ripple-effect" onclick="openProjectModal('project2')" data-project-id="project2">
+       <div class="h-48 bg-gradient-to-br from-sky-400 to-purple-500 flex items-center justify-center text-white text-7xl relative">
+        🕷️ 
+        <div class="absolute top-3 right-3 bg-white/90 text-purple-700 text-xs font-semibold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+         +15 EXP 💎
+        </div>
+       </div>
+       <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-rose-500 text-white text-xs font-bold rounded-full">Independent</span>
+       </div>
+       <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Quadruped Robot Development</h3>
+        <p class="text-gray-600 text-sm mb-4">Spider-like quadruped with inverse kinematics control (2024 - Present)</p>
+        <div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-sky-100 text-sky-700 text-xs rounded-full">Python</span> <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">IK Control</span> <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Robotics</span>
+        </div>
+       </div>
+       <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center"><button class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full transform scale-90 group-hover:scale-100 transition-transform"> View Details → </button>
+       </div>
+      </div><!-- Project 3: Data Analysis Tool -->
+      <div class="project-card card-hover bg-white rounded-2xl overflow-hidden shadow-lg cursor-pointer relative group ripple-effect" onclick="openProjectModal('project3')" data-project-id="project3">
+       <div class="h-48 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-7xl relative">
+        📊 
+        <div class="absolute top-3 right-3 bg-white/90 text-amber-700 text-xs font-semibold px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+         +15 EXP 💎
+        </div>
+       </div>
+       <div class="absolute top-4 left-4"><span class="px-3 py-1 bg-amber-500 text-white text-xs font-bold rounded-full">Tool</span>
+       </div>
+       <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Data Analysis Tool</h3>
+        <p class="text-gray-600 text-sm mb-4">Python automation for robotics sensor data processing (2024)</p>
+        <div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs rounded-full">Python</span> <span class="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded-full">Data Viz</span> <span class="px-2 py-1 bg-rose-100 text-rose-700 text-xs rounded-full">Automation</span>
+        </div>
+       </div>
+       <div class="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center"><button class="px-6 py-3 bg-white text-gray-900 font-bold rounded-full transform scale-90 group-hover:scale-100 transition-transform"> View Details → </button>
+       </div>
+      </div>
+     </div><!-- Technical Skills Overview -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Technical Skills Used</h2>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          🐍
+         </div>
+         <h3 class="font-bold text-gray-800 mb-1">Python</h3>
+         <p class="text-sm text-gray-600">Primary Language</p>
+        </div>
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          🤖
+         </div>
+         <h3 class="font-bold text-gray-800 mb-1">ROS2</h3>
+         <p class="text-sm text-gray-600">Robotics Framework</p>
+        </div>
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          🎨
+         </div>
+         <h3 class="font-bold text-gray-800 mb-1">SolidWorks</h3>
+         <p class="text-sm text-gray-600">CAD Design</p>
+        </div>
+        <div class="text-center">
+         <div class="text-5xl mb-3">
+          ⚡
+         </div>
+         <h3 class="font-bold text-gray-800 mb-1">Control Systems</h3>
+         <p class="text-sm text-gray-600">IK &amp; Algorithms</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Project Timeline -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Project Timeline</h2>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <div class="relative pl-8 border-l-4 border-sky-500 space-y-8">
+        <div class="relative">
+         <div class="absolute left-[-12px] top-0 w-6 h-6 bg-sky-500 rounded-full border-4 border-white"></div>
+         <div class="flex items-start gap-4">
+          <div class="text-4xl">
+           🛒
+          </div>
+          <div class="flex-1">
+           <div class="flex items-center gap-3 mb-2">
+            <h3 class="text-lg font-bold text-gray-800">Autonomous Wheeled Trolley</h3><span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">In Progress</span>
+           </div>
+           <p class="text-sm text-gray-600 mb-2">May 2024 - Present</p>
+           <p class="text-gray-700 text-sm">Research project in Prof. Longfei Qie's lab focusing on ROS2 autonomous navigation systems</p>
+          </div>
+         </div>
+        </div>
+        <div class="relative">
+         <div class="absolute left-[-12px] top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white"></div>
+         <div class="flex items-start gap-4">
+          <div class="text-4xl">
+           🕷️
+          </div>
+          <div class="flex-1">
+           <div class="flex items-center gap-3 mb-2">
+            <h3 class="text-lg font-bold text-gray-800">Quadruped Robot</h3><span class="px-3 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded-full">Active</span>
+           </div>
+           <p class="text-sm text-gray-600 mb-2">2024 - Present</p>
+           <p class="text-gray-700 text-sm">Personal project building spider-like quadruped with inverse kinematics control</p>
+          </div>
+         </div>
+        </div>
+        <div class="relative">
+         <div class="absolute left-[-12px] top-0 w-6 h-6 bg-amber-500 rounded-full border-4 border-white"></div>
+         <div class="flex items-start gap-4">
+          <div class="text-4xl">
+           📊
+          </div>
+          <div class="flex-1">
+           <div class="flex items-center gap-3 mb-2">
+            <h3 class="text-lg font-bold text-gray-800">Data Analysis Tool</h3><span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-full">Completed</span>
+           </div>
+           <p class="text-sm text-gray-600 mb-2">2024</p>
+           <p class="text-gray-700 text-sm">Python automation tool for robotics data processing and visualization</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- What I'm Working On -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Currently Exploring</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="bg-gradient-to-br from-sky-100 to-sky-200 rounded-xl p-6">
+        <div class="text-4xl mb-3">
+         🔬
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Advanced Navigation</h3>
+        <p class="text-sm text-gray-700">Learning about SLAM algorithms and obstacle avoidance for more sophisticated autonomous systems</p>
+       </div>
+       <div class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6">
+        <div class="text-4xl mb-3">
+         🎓
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Machine Learning</h3>
+        <p class="text-sm text-gray-700">Exploring computer vision and ML for robotics perception and decision-making</p>
+       </div>
+       <div class="bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-xl p-6">
+        <div class="text-4xl mb-3">
+         🤝
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Human-Robot Interaction</h3>
+        <p class="text-sm text-gray-700">Interested in making robots more intuitive and accessible for everyday users</p>
+       </div>
+       <div class="bg-gradient-to-br from-amber-100 to-amber-200 rounded-xl p-6">
+        <div class="text-4xl mb-3">
+         🌐
+        </div>
+        <h3 class="text-lg font-bold text-gray-800 mb-2">Multi-Robot Systems</h3>
+        <p class="text-sm text-gray-700">Studying coordination and communication between multiple autonomous agents</p>
+       </div>
+      </div>
+     </div><!-- CTA Card -->
+     <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-12 shadow-2xl text-white text-center">
+      <div class="text-6xl mb-6">
+       🚀
+      </div>
+      <h2 class="heading-font text-4xl font-bold mb-4">Want to see more?</h2>
+      <p class="text-purple-100 text-lg mb-6">I'm always working on new projects and looking for collaboration opportunities!</p><button onclick="navigateToPage('contact')" class="ripple-effect px-8 py-4 bg-white text-purple-600 font-bold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all mb-4"> 💬 Let's Collaborate! </button>
+      <div class="mt-6 pt-6 border-t border-purple-400">
+       <p class="text-purple-100 text-sm mb-3">Deep Dive Into:</p>
+       <div class="flex flex-wrap justify-center gap-3"><a href="#" onclick="navigateToPage('ros2-projects'); return false;" class="text-sm text-white hover:text-purple-200 font-semibold transition-colors">🤖 ROS2 Development →</a>
+       </div>
+      </div>
+     </div>
+    </section><!-- Campus Page -->
+    <section id="campus" class="page-section mb-16" style="display: none;">
+     <div class="mb-8">
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🎓 Campus Life</h1>
+      <p class="text-center text-gray-600">University Experience at BUCT</p>
+     </div><!-- Intro Card -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+       <div class="text-8xl">
+        🏫
+       </div>
+       <div class="flex-1">
+        <h2 class="text-2xl font-bold text-gray-800 mb-3">About My University Journey</h2>
+        <p class="text-gray-700 mb-2"><strong>School:</strong> Beijing University of Chemical Technology (BUCT)</p>
+        <p class="text-gray-700 mb-2"><strong>Major:</strong> Mechanical Design, Manufacturing, and Automation</p>
+        <p class="text-gray-700 mb-2"><strong>Year:</strong> Sophomore (Class of 2027)</p>
+        <p class="text-gray-700 mb-2"><strong>Location:</strong> Beijing, China</p>
+        <p class="text-gray-700"><strong>Activities:</strong> Robotics Club, Badminton, Art &amp; Photography</p>
+       </div>
+      </div>
+     </div><!-- Daily Routine -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">My Daily Routine</h2>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex items-start gap-4">
+         <div class="text-4xl">
+          🌅
+         </div>
+         <div>
+          <h3 class="font-bold text-gray-800 mb-2">Morning (6:30 AM)</h3>
+          <p class="text-gray-600 text-sm">Early riser, starting with study time and green tea</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-4xl">
+          📚
+         </div>
+         <div>
+          <h3 class="font-bold text-gray-800 mb-2">Classes</h3>
+          <p class="text-gray-600 text-sm">Control Systems, Mechanical Design, and Engineering courses</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-4xl">
+          🔬
+         </div>
+         <div>
+          <h3 class="font-bold text-gray-800 mb-2">Afternoon Lab Work</h3>
+          <p class="text-gray-600 text-sm">Research in Robotics Lab (Building 7, 3F)</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-4xl">
+          🏸
+         </div>
+         <div>
+          <h3 class="font-bold text-gray-800 mb-2">Evening Activities</h3>
+          <p class="text-gray-600 text-sm">Badminton (Tues &amp; Thurs, 7-8 PM), walks around campus lake</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Favorite Spots -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">My Favorite Campus Spots</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+       <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer" onclick="clickCampusSpot('robotics-lab')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +4 EXP
+        </div>
+        <div class="aspect-[4/3] overflow-hidden"><img src="https://i.ibb.co/sdWjVHmG/.-2235-5.jpg" alt="Robotics Lab" class="w-full h-full object-cover bg-gray-50" onerror="this.parentElement.innerHTML='<div class=\'aspect-[4/3] bg-gradient-to-br from-sky-100 to-sky-200 flex items-center justify-center text-5xl\'>🤖</div>';"></div>
+        <div class="p-6 text-center">
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Robotics Lab</h3>
+         <p class="text-gray-700 text-sm">Building 7, 3F - Where I develop autonomous systems and conduct research</p>
+        </div>
+       </div>
+       <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer" onclick="clickCampusSpot('library')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +4 EXP
+        </div>
+        <div class="aspect-[4/3] overflow-hidden"><img src="https://i.ibb.co/b5whrP6H/2bf6cd6b0383143a09f59d5a9e326cfc.jpg" alt="Library and Bookstore" class="w-full h-full object-cover bg-gray-50" onerror="this.parentElement.innerHTML='<div class=\'aspect-[4/3] bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center text-5xl\'>📚</div>';"></div>
+        <div class="p-6 text-center">
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Library Corner</h3>
+         <p class="text-gray-700 text-sm">5th-floor window seat - Perfect for deep study sessions and reflection</p>
+        </div>
+       </div>
+       <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer" onclick="clickCampusSpot('lake')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +4 EXP
+        </div>
+        <div class="aspect-[4/3] overflow-hidden"><img src="https://i.ibb.co/BHb0bKKW/50724a6c54a3eceefaae39e12f7e33bd.jpg" alt="Campus Bookstore" class="w-full h-full object-cover bg-gray-50" onerror="this.parentElement.innerHTML='<div class=\'aspect-[4/3] bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center text-5xl\'>🌊</div>';"></div>
+        <div class="p-6 text-center">
+         <h3 class="text-xl font-bold text-gray-800 mb-2">Campus Lake</h3>
+         <p class="text-gray-700 text-sm">Peaceful walks for thinking and photographing golden hour light</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Hobbies & Interests -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Hobbies &amp; Lifestyle</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer hover:shadow-xl transition-shadow" onclick="clickHobby('art')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +3 EXP
+        </div>
+        <div class="aspect-[3/4] overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/twJnB8pV/.-505-5.jpg" alt="Watercolor Artwork" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'aspect-[3/4] bg-gradient-to-br from-pink-100 to-rose-200 flex items-center justify-center text-5xl\'>🎨</div>';"></div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Watercolor Art</h3>
+         <p class="text-gray-700 text-sm mb-2">Primarily works with watercolors, appreciating their unpredictable flow</p>
+         <p class="text-gray-600 text-sm">Inspired by light, shadows, and quiet moments. Completed 28 paintings this semester!</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer hover:shadow-xl transition-shadow" onclick="clickHobby('photography')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +3 EXP
+        </div>
+        <div class="aspect-[3/4] overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/x82xfLD5/d3ed745939002c6ac53bb32dc0640b7b.jpg" alt="Guitar Life Photo" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'aspect-[3/4] bg-gradient-to-br from-sky-100 to-blue-200 flex items-center justify-center text-5xl\'>📷</div>';"></div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Music &amp; Photography</h3>
+         <p class="text-gray-700 text-sm mb-2">Captures candid campus life, architecture, and enjoys playing guitar</p>
+         <p class="text-gray-600 text-sm">Finding balance between technical work and creative expression</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer hover:shadow-xl transition-shadow" onclick="clickHobby('badminton')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +3 EXP
+        </div>
+        <div class="aspect-[3/4] overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/SD6PPw5y/.-2129-5.jpg" alt="Badminton Activity" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'aspect-[3/4] bg-gradient-to-br from-emerald-100 to-teal-200 flex items-center justify-center text-5xl\'>🏸</div>';"></div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Badminton</h3>
+         <p class="text-gray-700 text-sm mb-2">Plays twice a week (Tuesday &amp; Thursday, 7-8 PM)</p>
+         <p class="text-gray-600 text-sm">Great way to stay active and connect with fellow students, participated in international student-teacher exchange</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg relative cursor-pointer hover:shadow-xl transition-shadow" onclick="clickHobby('reading')">
+        <div class="absolute top-3 right-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+         +3 EXP
+        </div>
+        <div class="aspect-[3/4] overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/rGh3SzL5/.-530-5.jpg" alt="Sketch Drawing" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'aspect-[3/4] bg-gradient-to-br from-amber-100 to-orange-200 flex items-center justify-center text-5xl\'>📖</div>';"></div>
+        <div class="p-6">
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Drawing &amp; Learning</h3>
+         <p class="text-gray-700 text-sm mb-2">Mix of sketching, painting, and reading robotics papers</p>
+         <p class="text-gray-600 text-sm">Checked out 43 library books this semester! Visual learner who draws diagrams</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Campus Stats -->
+     <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+      <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">This Semester's Stats</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+       <div class="text-center">
+        <div class="text-4xl font-bold gradient-text mb-2">
+         156
+        </div>
+        <div class="text-sm text-gray-600">
+         Cups of Green Tea
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-4xl font-bold gradient-text mb-2">
+         43
+        </div>
+        <div class="text-sm text-gray-600">
+         Library Books
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-4xl font-bold gradient-text mb-2">
+         28
+        </div>
+        <div class="text-sm text-gray-600">
+         Paintings Completed
+        </div>
+       </div>
+       <div class="text-center">
+        <div class="text-4xl font-bold gradient-text mb-2">
+         87
+        </div>
+        <div class="text-sm text-gray-600">
+         Lab Hours
+        </div>
+       </div>
+      </div>
+     </div><!-- Campus Philosophy -->
+     <div class="bg-gradient-to-r from-sky-500 to-purple-500 rounded-2xl p-12 shadow-2xl text-white text-center">
+      <div class="text-6xl mb-6">
+       💫
+      </div>
+      <h2 class="heading-font text-4xl font-bold mb-4">My Campus Philosophy</h2>
+      <p class="text-sky-100 text-lg max-w-3xl mx-auto mb-6">"Slow progress is still progress. I value deep understanding over finishing first. University is about discovering my authentic path, building genuine connections, and developing skills that extend beyond the classroom—where gears meet stories, and engineering meets art."</p>
+      <div class="mt-6 pt-6 border-t border-sky-400">
+       <p class="text-sky-100 text-sm mb-3">Explore More About My Campus Life:</p>
+       <div class="flex flex-wrap justify-center gap-3"><a href="#" onclick="navigateToPage('robotics-club'); return false;" class="text-sm text-white hover:text-sky-200 font-semibold transition-colors">🤖 Robotics Club →</a> <a href="#" onclick="navigateToPage('art-gallery'); return false;" class="text-sm text-white hover:text-sky-200 font-semibold transition-colors">🎨 Art Gallery →</a>
+       </div>
+      </div>
+     </div>
+    </section><!-- Achievements Page -->
+    <section id="achievements" class="page-section mb-16" style="display: none;">
+     <div class="mb-8">
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🏆 Achievements</h1>
+      <p class="text-center text-gray-600">Celebrating Milestones &amp; Progress</p>
+     </div><!-- Intro Card -->
+     <div class="bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl p-8 shadow-xl text-white text-center mb-8">
+      <div class="text-6xl mb-4">
+       🎯
+      </div>
+      <h2 class="text-2xl font-bold mb-3">Track Your Exploration Journey</h2>
+      <p class="text-amber-100">Every page you visit, every project you explore, and every skill you click adds to your progress. Keep exploring to level up!</p>
+     </div><!-- Unlocked Achievements Display -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">🌟 Your Unlocked Achievements</h2>
+      <div id="unlocked-achievements-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Achievements will be dynamically added here -->
+      </div>
+      <div id="no-achievements-message" class="text-center py-12 text-gray-500">
+       <div class="text-6xl mb-4">
+        🔒
+       </div>
+       <p class="text-lg">Start exploring to unlock your first achievement!</p>
+      </div>
+     </div><!-- Real-World Honors -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Real-World Honors</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6"><!-- Honor 1 -->
+       <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <div class="flex items-start gap-4">
+         <div class="text-5xl">
+          🎓
+         </div>
+         <div class="flex-1">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">People's Third-Class Scholarship</h3>
+          <p class="text-purple-600 font-semibold mb-3">Awarded April 2025</p>
+          <p class="text-gray-700 text-sm">Recognized for academic excellence and outstanding contributions to research projects at Beijing University of Chemical Technology.</p>
+         </div>
+        </div>
+       </div><!-- Honor 2 -->
+       <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <div class="flex items-start gap-4">
+         <div class="text-5xl">
+          🔬
+         </div>
+         <div class="flex-1">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Research Lab Contributor</h3>
+          <p class="text-sky-600 font-semibold mb-3">May 2024 - Present</p>
+          <p class="text-gray-700 text-sm">Active member of Prof. Longfei Qie's lab, contributing to autonomous systems research and ROS2 development.</p>
+         </div>
+        </div>
+       </div><!-- Honor 3 -->
+       <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <div class="flex items-start gap-4">
+         <div class="text-5xl">
+          🤖
+         </div>
+         <div class="flex-1">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Independent Robot Developer</h3>
+          <p class="text-amber-600 font-semibold mb-3">2024 - Present</p>
+          <p class="text-gray-700 text-sm">Successfully designed and built quadruped robot from scratch, implementing advanced inverse kinematics control.</p>
+         </div>
+        </div>
+       </div><!-- Honor 4 -->
+       <div class="bg-white rounded-2xl p-8 shadow-lg">
+        <div class="flex items-start gap-4">
+         <div class="text-5xl">
+          🌏
+         </div>
+         <div class="flex-1">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Exchange Student Selection</h3>
+          <p class="text-emerald-600 font-semibold mb-3">Planned 2027-2028</p>
+          <p class="text-gray-700 text-sm">Selected for exchange program at University of Detroit Mercy (UDM), Michigan, USA for advanced robotics studies.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Your Progress Section -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">Your Progress</h2>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"><!-- Stat 1: Pages Visited -->
+        <div class="text-center">
+         <div class="text-6xl mb-3">
+          📄
+         </div>
+         <div class="text-4xl font-bold gradient-text stat-number" id="stat-pages">
+          0
+         </div>
+         <div class="text-sm text-gray-600 mt-2">
+          Pages Visited
+         </div>
+         <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-sky-500 to-purple-500 transition-all" id="stat-pages-bar" style="width: 0%"></div>
+         </div>
+         <div class="text-xs text-gray-500 mt-1">
+          out of 6 pages
+         </div>
+        </div><!-- Stat 2: Projects Viewed -->
+        <div class="text-center">
+         <div class="text-6xl mb-3">
+          💼
+         </div>
+         <div class="text-4xl font-bold gradient-text stat-number" id="stat-projects">
+          0
+         </div>
+         <div class="text-sm text-gray-600 mt-2">
+          Projects Viewed
+         </div>
+         <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-500 transition-all" id="stat-projects-bar" style="width: 0%"></div>
+         </div>
+         <div class="text-xs text-gray-500 mt-1">
+          out of 3 projects
+         </div>
+        </div><!-- Stat 3: Time Spent -->
+        <div class="text-center">
+         <div class="text-6xl mb-3">
+          ⏱️
+         </div>
+         <div class="text-4xl font-bold gradient-text stat-number" id="stat-time">
+          0
+         </div>
+         <div class="text-sm text-gray-600 mt-2">
+          Minutes Spent
+         </div>
+         <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all" id="stat-time-bar" style="width: 0%"></div>
+         </div>
+         <div class="text-xs text-gray-500 mt-1">
+          exploring
+         </div>
+        </div><!-- Stat 4: Skills Clicked -->
+        <div class="text-center">
+         <div class="text-6xl mb-3">
+          🎯
+         </div>
+         <div class="text-4xl font-bold gradient-text stat-number" id="stat-skills">
+          0
+         </div>
+         <div class="text-sm text-gray-600 mt-2">
+          Skills Explored
+         </div>
+         <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all" id="stat-skills-bar" style="width: 0%"></div>
+         </div>
+         <div class="text-xs text-gray-500 mt-1">
+          out of 9 skills
+         </div>
+        </div><!-- Stat 5: Exploration Rate -->
+        <div class="text-center">
+         <div class="text-6xl mb-3">
+          ⚡
+         </div>
+         <div class="text-4xl font-bold gradient-text stat-number" id="stat-rate">
+          0
+         </div>
+         <div class="text-sm text-gray-600 mt-2">
+          Exploration %
+         </div>
+         <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-rose-500 to-red-500 transition-all" id="stat-rate-bar" style="width: 0%"></div>
+         </div>
+         <div class="text-xs text-gray-500 mt-1">
+          completion rate
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Achievement Badges -->
+     <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-12 shadow-2xl text-white text-center">
+      <div class="text-6xl mb-6">
+       🌟
+      </div>
+      <h2 class="heading-font text-4xl font-bold mb-4">Keep Exploring!</h2>
+      <p class="text-purple-100 text-lg mb-6">You're doing great! Continue exploring to unlock more achievements and level up. Every interaction counts toward your journey of discovery.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+       <div class="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-semibold">
+        🎯 Level <span id="achievement-level">1</span> Explorer
+       </div>
+       <div class="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-semibold">
+        🌟 <span id="achievement-points">0</span> Points
+       </div>
+       <div class="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-semibold">
+        🏆 <span id="achievement-count">0</span> Achievements
+       </div>
+      </div>
+     </div>
+    </section><!-- Secret Blessing Page -->
+    <section id="secret" class="page-section mb-16" style="display: none;">
+     <div class="mb-8">
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🎁 A Blessing for You</h1>
+      <p class="text-center text-gray-600">Thank you for taking the time to truly explore</p>
+     </div><!-- Celebration Header -->
+     <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-3xl p-12 shadow-2xl text-white text-center mb-8 relative overflow-hidden">
+      <div class="absolute inset-0 shimmer opacity-30"></div>
+      <div class="relative z-10">
+       <div class="text-9xl mb-6 float-animation">
+        🌟
+       </div>
+       <h2 class="heading-font text-4xl font-bold mb-4">Congratulations, True Explorer!</h2>
+       <p class="text-amber-100 text-xl mb-6">You've reached Level 5 and unlocked this special blessing!</p>
+       <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <div class="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-bold text-xl">
+         🌟 Level <span id="secret-level">5</span>+
+        </div>
+        <div class="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-bold text-xl">
+         🌟 <span id="secret-points">0</span> Exploration Points
+        </div>
+        <div class="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full font-bold text-xl">
+         🏆 <span id="secret-achievements">0</span> Achievements
+        </div>
+       </div>
+      </div>
+     </div><!-- Main Blessing Message -->
+     <div class="bg-white rounded-2xl p-10 shadow-xl mb-8 border-4 border-amber-300">
+      <div class="text-center mb-8">
+       <div class="text-7xl mb-4">
+        ✨
+       </div>
+       <h2 class="text-3xl font-bold text-gray-800 mb-6">My Blessing to You</h2>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-6 text-lg leading-relaxed text-gray-700">
+       <p class="text-center italic text-xl text-purple-600 font-semibold">"May your journey be filled with wonder and purpose."</p>
+       <p>Dear Explorer,</p>
+       <p>You took the time to truly see—not just glance, but genuinely explore. In a world where everyone rushes, you paused. Where others skim, you read. Where most click once, you clicked again and again. This tells me something beautiful about who you are.</p>
+       <p><strong>May you always maintain this curiosity.</strong> May you keep asking "why" when others say "just because." May you find joy in the details that others overlook. May your thoroughness lead you to discoveries that change everything.</p>
+       <p><strong>May your work bridge logic and creativity.</strong> Like how art needs engineering and engineering needs art, may you find beauty in the intersection of seemingly opposite worlds. May your projects be both functional and meaningful, both precise and poetic.</p>
+       <p><strong>May slow progress feel like progress.</strong> In your moments of frustration, when things aren't moving as fast as you'd like, remember that depth matters more than speed. Every small step forward is still forward. Every experiment that "fails" teaches you something valuable.</p>
+       <p><strong>May you build things that serve people.</strong> May your technical skills always be guided by empathy. May your innovations make someone's life genuinely better. May you never forget that behind every user, there's a human being with hopes and struggles.</p>
+       <p><strong>May you find collaborators who see you.</strong> Just as you took the time to truly explore this portfolio, may you find teammates, mentors, and friends who take the time to truly see you—your strengths, your potential, your unique perspective.</p>
+       <p><strong>May you embrace imperfection.</strong> May you have the courage to ship something real, even when it's not perfect. May you value honesty over polish, substance over appearance, authentic connection over impressive credentials.</p>
+       <p class="text-center italic text-purple-600 font-semibold pt-4">Most importantly: May you never lose the quality that brought you to this hidden page—<br>
+         the willingness to explore, to engage, to genuinely care about what you're discovering.</p>
+       <p class="text-center font-bold text-gray-800 pt-6">Thank you for being here. Thank you for seeing.<br>
+         The world needs more people like you.</p>
+       <p class="text-right italic text-gray-600 pt-4">With gratitude and hope,<br><span class="font-semibold">Jessica (Wenjun) Huang</span><br><span class="text-sm">Beijing, 2024</span></p>
+      </div>
+     </div><!-- Easter Egg Gallery -->
+     <div class="mb-8">
+      <h2 class="heading-font text-3xl font-bold gradient-text mb-6 text-center">🎨 Secret Gallery</h2>
+      <p class="text-center text-gray-600 mb-6">A few of my favorite moments captured in paint, code, and campus life</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+       <div class="rounded-xl h-64 shadow-lg card-hover overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/ksqr8Sd0/.-2236-5.jpg" alt="Lab Equipment" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'h-64 bg-gradient-to-br from-sky-300 to-blue-400 flex items-center justify-center text-6xl\'>🔬</div>';"></div>
+       <div class="rounded-xl h-64 shadow-lg card-hover overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/M5xmC0xD/.-2241-5.jpg" alt="Robotics Lab Work" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'h-64 bg-gradient-to-br from-purple-300 to-pink-400 flex items-center justify-center text-6xl\'>🤖</div>';"></div>
+       <div class="rounded-xl h-64 shadow-lg card-hover overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/kVhLKZ06/.-523-5.jpg" alt="Plaster Sketch" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'h-64 bg-gradient-to-br from-emerald-300 to-teal-400 flex items-center justify-center text-6xl\'>🎨</div>';"></div>
+       <div class="rounded-xl h-64 shadow-lg card-hover overflow-hidden bg-gray-50 flex items-center justify-center"><img src="https://i.ibb.co/hRtc8rjY/.-2242-5.jpg" alt="AI Conference Visit" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'h-64 bg-gradient-to-br from-amber-300 to-orange-400 flex items-center justify-center text-6xl\'>🏛️</div>';"></div>
+      </div>
+      <p class="text-center text-gray-500 text-sm mt-4 italic">My robotics lab workspace, equipment and experiments, watercolor sketches, and visiting Shanghai AI Conference</p>
+     </div><!-- Final Message -->
+     <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 rounded-3xl p-12 shadow-2xl text-white text-center">
+      <div class="text-8xl mb-6">
+       🤝
+      </div>
+      <h2 class="heading-font text-4xl font-bold mb-4">Let's Create Something Meaningful Together</h2>
+      <p class="text-purple-100 text-lg mb-8 max-w-3xl mx-auto">You've proven you're someone who truly cares about understanding. If you ever want to collaborate on a project, discuss ideas, or simply connect, I'd be honored to hear from you.</p><button onclick="navigateToPage('contact')" class="ripple-effect px-10 py-5 bg-white text-purple-600 font-bold text-lg rounded-full hover:shadow-2xl transform hover:scale-105 transition-all"> 💬 Reach Out to Me </button>
+     </div>
+    </section><!-- Contact Page -->
+    <section id="contact" class="page-section mb-16" style="display: none;">
+     <div class="mb-8">
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">✉️ Contact Me</h1>
+      <p class="text-center text-gray-600">Let's Connect and Collaborate</p>
+     </div><!-- Contact Info Cards -->
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white rounded-2xl p-8 shadow-lg text-center card-hover">
+       <div class="text-6xl mb-4">
+        📧
+       </div>
+       <h3 class="text-xl font-bold text-gray-800 mb-2">Email</h3>
+       <p class="text-gray-600">jessica.huang@buct.edu.cn</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg text-center card-hover">
+       <div class="text-6xl mb-4">
+        🏫
+       </div>
+       <h3 class="text-xl font-bold text-gray-800 mb-2">University</h3>
+       <p class="text-gray-600">Beijing University of Chemical Technology</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg text-center card-hover">
+       <div class="text-6xl mb-4">
+        📍
+       </div>
+       <h3 class="text-xl font-bold text-gray-800 mb-2">Location</h3>
+       <p class="text-gray-600">Beijing, China</p>
+      </div>
+     </div><!-- About Me Section -->
+     <div class="bg-white rounded-2xl p-12 shadow-lg text-center mb-8">
+      <div class="text-8xl mb-6">
+       👋
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Nice to Meet You!</h2>
+      <p class="text-gray-600 text-lg mb-4 max-w-2xl mx-auto">I'm Jessica, a Mechanical Engineering sophomore at BUCT with a passion for robotics and automation. I believe in bridging engineering with art, and I value authenticity and deep learning.</p>
+      <p class="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">I'm always excited to discuss robotics projects, collaborate on innovative ideas, or simply connect with fellow engineers and creators. Feel free to reach out!</p>
+      <div class="flex flex-wrap justify-center gap-4"><a href="mailto:jessica.huang@buct.edu.cn" class="ripple-effect px-8 py-4 bg-gradient-to-r from-sky-500 to-purple-500 text-white font-bold rounded-full hover:shadow-2xl transform hover:scale-105 transition-all"> 📧 Send Email </a>
+      </div>
+     </div><!-- What I'm Looking For -->
+     <div class="bg-gradient-to-r from-sky-500 to-purple-500 rounded-2xl p-12 shadow-2xl text-white">
+      <div class="text-center mb-8">
+       <div class="text-6xl mb-4">
+        🔍
+       </div>
+       <h2 class="heading-font text-3xl font-bold mb-4">What I'm Looking For</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+       <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+        <div class="text-3xl mb-2">
+         🔬
+        </div>
+        <h3 class="font-bold mb-2">Research Opportunities</h3>
+        <p class="text-sky-100 text-sm">Robotics, control systems, and autonomous navigation projects</p>
+       </div>
+       <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+        <div class="text-3xl mb-2">
+         🤝
+        </div>
+        <h3 class="font-bold mb-2">Collaborations</h3>
+        <p class="text-sky-100 text-sm">Open-source robotics projects and engineering challenges</p>
+       </div>
+       <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+        <div class="text-3xl mb-2">
+         💡
+        </div>
+        <h3 class="font-bold mb-2">Learning &amp; Mentorship</h3>
+        <p class="text-sky-100 text-sm">Connecting with experienced engineers and fellow students</p>
+       </div>
+       <div class="bg-white/20 backdrop-blur-sm rounded-xl p-6">
+        <div class="text-3xl mb-2">
+         🌏
+        </div>
+        <h3 class="font-bold mb-2">Exchange Connections</h3>
+        <p class="text-sky-100 text-sm">Building international networks for 2027-2028 UDM exchange</p>
+       </div>
+      </div>
+     </div>
+    </section><!-- Subpage 1: Education Details -->
+    <section id="education-details" class="page-section mb-16" style="display: none;">
+     <div class="mb-8"><button onclick="navigateToPage('resume')" class="text-sky-600 hover:text-purple-600 font-semibold mb-4 inline-flex items-center"> ← Back to Resume </button>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🎓 Education Details</h1>
+      <p class="text-center text-gray-600">My Academic Journey at BUCT</p>
+     </div>
+     <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <div class="flex items-center gap-6 mb-6">
+        <div class="text-7xl">
+         🏛️
+        </div>
+        <div>
+         <h2 class="text-3xl font-bold text-gray-800">Beijing University of Chemical Technology</h2>
+         <p class="text-purple-600 font-semibold text-lg">2023 - 2027 (Expected)</p>
+        </div>
+       </div>
+       <div class="space-y-6">
+        <div>
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Major Focus</h3>
+         <p class="text-gray-700">Bachelor of Engineering in Mechanical Design, Manufacturing, and Automation with emphasis on robotics and control systems.</p>
+        </div>
+        <div>
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Current Standing</h3>
+         <p class="text-gray-700">Sophomore (Second Year) - Class of 2027</p>
+        </div>
+        <div>
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Key Courses Completed</h3>
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="border-l-4 border-sky-500 pl-4">
+           <h4 class="font-bold text-gray-800">Engineering Fundamentals</h4>
+           <ul class="text-gray-600 text-sm space-y-1 mt-2">
+            <li>• Engineering Mechanics</li>
+            <li>• Materials Science</li>
+            <li>• Thermodynamics</li>
+            <li>• Fluid Mechanics</li>
+           </ul>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-4">
+           <h4 class="font-bold text-gray-800">Design &amp; Manufacturing</h4>
+           <ul class="text-gray-600 text-sm space-y-1 mt-2">
+            <li>• Mechanical Design Principles</li>
+            <li>• CAD/CAM Systems</li>
+            <li>• Manufacturing Processes</li>
+            <li>• Machine Elements Design</li>
+           </ul>
+          </div>
+          <div class="border-l-4 border-emerald-500 pl-4">
+           <h4 class="font-bold text-gray-800">Control &amp; Automation</h4>
+           <ul class="text-gray-600 text-sm space-y-1 mt-2">
+            <li>• Control Systems Engineering</li>
+            <li>• Robotics Fundamentals</li>
+            <li>• Automation Technology</li>
+            <li>• Sensors &amp; Actuators</li>
+           </ul>
+          </div>
+          <div class="border-l-4 border-amber-500 pl-4">
+           <h4 class="font-bold text-gray-800">Programming &amp; Mathematics</h4>
+           <ul class="text-gray-600 text-sm space-y-1 mt-2">
+            <li>• Advanced Mathematics</li>
+            <li>• Linear Algebra</li>
+            <li>• Programming in C/Python</li>
+            <li>• Numerical Methods</li>
+           </ul>
+          </div>
+         </div>
+        </div>
+        <div>
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Academic Achievements</h3>
+         <div class="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-6">
+          <div class="flex items-center gap-4">
+           <div class="text-5xl">
+            🏆
+           </div>
+           <div>
+            <h4 class="font-bold text-gray-800 text-lg mb-1">People's Third-Class Scholarship</h4>
+            <p class="text-gray-700 text-sm">Awarded April 2025 for academic excellence and research contributions</p>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div>
+         <h3 class="text-xl font-bold text-gray-800 mb-3">Upcoming Exchange Program</h3>
+         <div class="bg-gradient-to-r from-sky-100 to-blue-100 rounded-xl p-6">
+          <div class="flex items-center gap-4">
+           <div class="text-5xl">
+            🌎
+           </div>
+           <div>
+            <h4 class="font-bold text-gray-800 text-lg mb-1">University of Detroit Mercy (UDM)</h4>
+            <p class="text-gray-700 text-sm mb-2">Michigan, USA | Planned 2027-2028</p>
+            <p class="text-gray-600 text-sm">Advanced robotics studies and international research collaboration opportunity</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Subpage 2: ROS2 Projects Detail -->
+    <section id="ros2-projects" class="page-section mb-16" style="display: none;">
+     <div class="mb-8"><button onclick="navigateToPage('portfolio')" class="text-sky-600 hover:text-purple-600 font-semibold mb-4 inline-flex items-center"> ← Back to Portfolio </button>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🤖 ROS2 Development</h1>
+      <p class="text-center text-gray-600">Robot Operating System 2 Projects</p>
+     </div>
+     <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl p-8 text-white mb-8">
+       <div class="text-6xl mb-4 text-center">
+        🔧
+       </div>
+       <h2 class="text-3xl font-bold text-center mb-4">My ROS2 Journey</h2>
+       <p class="text-emerald-100 text-center">Exploring the power of ROS2 for autonomous robotics systems</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">What is ROS2?</h3>
+       <p class="text-gray-700 mb-4">Robot Operating System 2 (ROS2) is an open-source robotics middleware that provides tools and libraries for building robot applications. It's the next generation of ROS, offering improved real-time performance, better security, and multi-robot support.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">My ROS2 Skills</h3>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border-2 border-sky-200 rounded-xl p-6">
+         <div class="text-4xl mb-3">
+          📦
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">Node Development</h4>
+         <p class="text-gray-600 text-sm">Creating custom ROS2 nodes in Python for sensor processing and control</p>
+        </div>
+        <div class="border-2 border-purple-200 rounded-xl p-6">
+         <div class="text-4xl mb-3">
+          📡
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">Topics &amp; Services</h4>
+         <p class="text-gray-600 text-sm">Implementing publish-subscribe patterns and service-client communication</p>
+        </div>
+        <div class="border-2 border-emerald-200 rounded-xl p-6">
+         <div class="text-4xl mb-3">
+          🗺️
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">Navigation Stack</h4>
+         <p class="text-gray-600 text-sm">Working with Nav2 for autonomous navigation and path planning</p>
+        </div>
+        <div class="border-2 border-amber-200 rounded-xl p-6">
+         <div class="text-4xl mb-3">
+          🎯
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">Sensor Integration</h4>
+         <p class="text-gray-600 text-sm">Integrating LiDAR, cameras, and IMU sensors for environment perception</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">Current Project: Autonomous Wheeled Trolley</h3>
+       <div class="space-y-4">
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          ✓
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">ROS2 Architecture Design</h4>
+          <p class="text-gray-600 text-sm">Designed modular node architecture for scalability and maintainability</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          ✓
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Sensor Data Processing</h4>
+          <p class="text-gray-600 text-sm">Implemented real-time processing of LiDAR and camera data for obstacle detection</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          ✓
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Path Planning Integration</h4>
+          <p class="text-gray-600 text-sm">Integrated A* and DWA algorithms for dynamic path planning</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          🔄
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Currently Working On</h4>
+          <p class="text-gray-600 text-sm">Implementing SLAM for autonomous mapping and localization</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Subpage 3: Robotics Club -->
+    <section id="robotics-club" class="page-section mb-16" style="display: none;">
+     <div class="mb-8"><button onclick="navigateToPage('campus')" class="text-sky-600 hover:text-purple-600 font-semibold mb-4 inline-flex items-center"> ← Back to Campus Life </button>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🤖 Robotics Club</h1>
+      <p class="text-center text-gray-600">BUCT Robotics Community &amp; Activities</p>
+     </div>
+     <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-8 text-white mb-8 text-center">
+       <div class="text-7xl mb-4">
+        🏆
+       </div>
+       <h2 class="text-3xl font-bold mb-4">Building Robots, Building Community</h2>
+       <p class="text-purple-100">Where passionate students come together to learn, create, and innovate</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">About Our Club</h3>
+       <p class="text-gray-700 mb-4">The BUCT Robotics Club is a student-led organization focused on hands-on robotics projects, competitions, and collaborative learning. We meet weekly to work on projects, share knowledge, and prepare for robotics competitions.</p>
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+        <div class="text-center p-4 bg-sky-50 rounded-xl">
+         <div class="text-3xl mb-2">
+          👥
+         </div>
+         <div class="text-2xl font-bold text-gray-800">
+          30+
+         </div>
+         <div class="text-sm text-gray-600">
+          Active Members
+         </div>
+        </div>
+        <div class="text-center p-4 bg-purple-50 rounded-xl">
+         <div class="text-3xl mb-2">
+          🔧
+         </div>
+         <div class="text-2xl font-bold text-gray-800">
+          12
+         </div>
+         <div class="text-sm text-gray-600">
+          Ongoing Projects
+         </div>
+        </div>
+        <div class="text-center p-4 bg-emerald-50 rounded-xl">
+         <div class="text-3xl mb-2">
+          🏅
+         </div>
+         <div class="text-2xl font-bold text-gray-800">
+          5
+         </div>
+         <div class="text-sm text-gray-600">
+          Competitions/Year
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">My Role &amp; Contributions</h3>
+       <div class="space-y-4">
+        <div class="border-l-4 border-sky-500 pl-6 py-2">
+         <h4 class="font-bold text-gray-800 mb-1">Technical Team Member</h4>
+         <p class="text-gray-600 text-sm">Focus on ROS2 development and autonomous systems programming</p>
+        </div>
+        <div class="border-l-4 border-purple-500 pl-6 py-2">
+         <h4 class="font-bold text-gray-800 mb-1">Workshop Facilitator</h4>
+         <p class="text-gray-600 text-sm">Led introductory workshops on Python programming for robotics</p>
+        </div>
+        <div class="border-l-4 border-emerald-500 pl-6 py-2">
+         <h4 class="font-bold text-gray-800 mb-1">Project Collaborator</h4>
+         <p class="text-gray-600 text-sm">Working with team on autonomous navigation systems</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">Weekly Activities</h3>
+       <div class="space-y-3">
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+         <div class="text-3xl">
+          📅
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Tuesday Meetings</h4>
+          <p class="text-gray-600 text-sm">7:00 PM - 9:00 PM | Project work and technical discussions</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+         <div class="text-3xl">
+          🎓
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Thursday Workshops</h4>
+          <p class="text-gray-600 text-sm">7:00 PM - 8:30 PM | Skills training and learning sessions</p>
+         </div>
+        </div>
+        <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+         <div class="text-3xl">
+          🔬
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Weekend Lab Access</h4>
+          <p class="text-gray-600 text-sm">Open lab time for individual and team projects</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Subpage 4: Art Gallery -->
+    <section id="art-gallery" class="page-section mb-16" style="display: none;">
+     <div class="mb-8"><button onclick="navigateToPage('campus')" class="text-sky-600 hover:text-purple-600 font-semibold mb-4 inline-flex items-center"> ← Back to Campus Life </button>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🎨 Art Gallery</h1>
+      <p class="text-center text-gray-600">Watercolors, Sketches &amp; Creative Explorations</p>
+     </div>
+     <div class="max-w-5xl mx-auto">
+      <div class="bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl p-8 text-white mb-8 text-center">
+       <div class="text-7xl mb-4">
+        ✨
+       </div>
+       <h2 class="text-3xl font-bold mb-4">Where Engineering Meets Art</h2>
+       <p class="text-pink-100">A collection of my watercolor paintings and creative works from this semester</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-4">My Artistic Philosophy</h3>
+       <p class="text-gray-700 mb-4">I believe art and engineering are two sides of the same coin. Painting helps me think differently about technical problems, while engineering teaches me structure and precision in art. Watercolors, in particular, teach patience and acceptance—qualities essential in both art and robotics.</p>
+       <div class="grid grid-cols-3 gap-4 mt-6">
+        <div class="text-center p-4 bg-gradient-to-br from-pink-100 to-rose-100 rounded-xl">
+         <div class="text-3xl mb-2">
+          🖌️
+         </div>
+         <div class="text-2xl font-bold text-gray-800">
+          28
+         </div>
+         <div class="text-sm text-gray-600">
+          Paintings This Semester
+         </div>
+        </div>
+        <div class="text-center p-4 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-xl">
+         <div class="text-3xl mb-2">
+          🎨
+         </div>
+         <div class="text-2xl font-bold text-gray-800">
+          3
+         </div>
+         <div class="text-sm text-gray-600">
+          Art Styles Explored
+         </div>
+        </div>
+        <div class="text-center p-4 bg-gradient-to-br from-sky-100 to-blue-100 rounded-xl">
+         <div class="text-3xl mb-2">
+          ⏰
+         </div>
+         <div class="text-2xl font-bold text-gray-800">
+          52
+         </div>
+         <div class="text-sm text-gray-600">
+          Hours Painting
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="h-80 bg-gray-50 flex items-center justify-center overflow-hidden"><img src="https://i.ibb.co/twJnB8pV/.-505-5.jpg" alt="Watercolor Painting 1" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'h-80 bg-gradient-to-br from-pink-200 to-rose-300 flex items-center justify-center text-6xl\'>🎨</div>';"></div>
+        <div class="p-6">
+         <h4 class="font-bold text-gray-800 mb-2">Watercolor Series</h4>
+         <p class="text-gray-600 text-sm">Exploring light, shadow, and the beauty of imperfection</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="h-80 bg-gray-50 flex items-center justify-center overflow-hidden"><img src="https://i.ibb.co/kVhLKZ06/.-523-5.jpg" alt="Plaster Sketch" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'h-80 bg-gradient-to-br from-purple-200 to-indigo-300 flex items-center justify-center text-6xl\'>✏️</div>';"></div>
+        <div class="p-6">
+         <h4 class="font-bold text-gray-800 mb-2">Sketch Studies</h4>
+         <p class="text-gray-600 text-sm">Practice sketches focusing on form, proportion, and technique</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="h-80 bg-gray-50 flex items-center justify-center overflow-hidden"><img src="https://i.ibb.co/rGh3SzL5/.-530-5.jpg" alt="Drawing Work" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'h-80 bg-gradient-to-br from-sky-200 to-blue-300 flex items-center justify-center text-6xl\'>🖼️</div>';"></div>
+        <div class="p-6">
+         <h4 class="font-bold text-gray-800 mb-2">Mixed Media</h4>
+         <p class="text-gray-600 text-sm">Combining different techniques and materials for unique expressions</p>
+        </div>
+       </div>
+       <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div class="h-80 bg-gray-50 flex items-center justify-center overflow-hidden"><img src="https://i.ibb.co/x82xfLD5/d3ed745939002c6ac53bb32dc0640b7b.jpg" alt="Guitar and Life" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'h-80 bg-gradient-to-br from-emerald-200 to-teal-300 flex items-center justify-center text-6xl\'>🎸</div>';"></div>
+        <div class="p-6">
+         <h4 class="font-bold text-gray-800 mb-2">Life &amp; Music</h4>
+         <p class="text-gray-600 text-sm">Capturing everyday moments and the joy of music</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">What I've Learned from Art</h3>
+       <div class="space-y-4">
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          🌊
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Embracing Imperfection</h4>
+          <p class="text-gray-600 text-sm">Watercolors taught me that mistakes can become beautiful features—a lesson that applies to engineering projects too</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          ⏳
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Patience &amp; Process</h4>
+          <p class="text-gray-600 text-sm">Good work takes time. Each layer, each brushstroke matters—just like each line of code in a robotics project</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-4">
+         <div class="text-3xl">
+          👁️
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800">Seeing Differently</h4>
+          <p class="text-gray-600 text-sm">Art trains you to observe deeply, notice patterns, and see beauty in unexpected places</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Subpage 5: Research Lab -->
+    <section id="research-lab" class="page-section mb-16" style="display: none;">
+     <div class="mb-8"><button onclick="navigateToPage('resume')" class="text-sky-600 hover:text-purple-600 font-semibold mb-4 inline-flex items-center"> ← Back to Resume </button>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">🔬 Research Lab Experience</h1>
+      <p class="text-center text-gray-600">Prof. Longfei Qie's Robotics Laboratory</p>
+     </div>
+     <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl p-8 text-white mb-8">
+       <div class="text-6xl mb-4 text-center">
+        🧪
+       </div>
+       <h2 class="text-3xl font-bold text-center mb-4">My Research Journey</h2>
+       <p class="text-indigo-100 text-center">From curious student to active research contributor</p>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">Lab Overview</h3>
+       <p class="text-gray-700 mb-4">Prof. Longfei Qie's lab focuses on autonomous robotics, control systems, and intelligent navigation. As an undergraduate research assistant, I work alongside graduate students and faculty on cutting-edge robotics projects.</p>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="bg-gradient-to-br from-sky-100 to-blue-100 rounded-xl p-6">
+         <div class="text-4xl mb-3">
+          📍
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">Location</h4>
+         <p class="text-gray-700">Building 7, 3rd Floor</p>
+         <p class="text-gray-600 text-sm mt-1">BUCT Main Campus</p>
+        </div>
+        <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-6">
+         <div class="text-4xl mb-3">
+          👥
+         </div>
+         <h4 class="font-bold text-gray-800 mb-2">Team Size</h4>
+         <p class="text-gray-700">1 Professor, 8 Graduate Students</p>
+         <p class="text-gray-600 text-sm mt-1">3 Undergraduate Assistants</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">My Research Contributions</h3>
+       <div class="space-y-6">
+        <div class="border-l-4 border-emerald-500 pl-6">
+         <h4 class="font-bold text-gray-800 mb-2">Autonomous Navigation System Development</h4>
+         <p class="text-gray-600 text-sm mb-3">May 2024 - Present</p>
+         <ul class="text-gray-700 space-y-2 text-sm">
+          <li>• Developed ROS2 nodes for sensor integration and data processing</li>
+          <li>• Implemented path planning algorithms for indoor navigation</li>
+          <li>• Conducted experiments and collected performance data</li>
+          <li>• Collaborated with graduate students on system architecture</li>
+         </ul>
+        </div>
+        <div class="border-l-4 border-sky-500 pl-6">
+         <h4 class="font-bold text-gray-800 mb-2">Literature Review &amp; Documentation</h4>
+         <p class="text-gray-700 text-sm">Read and summarized 20+ research papers on SLAM, autonomous navigation, and control systems</p>
+        </div>
+        <div class="border-l-4 border-purple-500 pl-6">
+         <h4 class="font-bold text-gray-800 mb-2">Lab Presentations</h4>
+         <p class="text-gray-700 text-sm">Regular technical presentations on project progress and research findings to lab members</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">Skills Gained in the Lab</h3>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex items-start gap-3">
+         <div class="text-2xl">
+          🎯
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800 text-sm">Research Methodology</h4>
+          <p class="text-gray-600 text-xs">Experimental design, data collection, and analysis</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="text-2xl">
+          📚
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800 text-sm">Technical Writing</h4>
+          <p class="text-gray-600 text-xs">Documentation and research paper reading</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="text-2xl">
+          🤝
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800 text-sm">Collaboration</h4>
+          <p class="text-gray-600 text-xs">Working with graduate students and faculty</p>
+         </div>
+        </div>
+        <div class="flex items-start gap-3">
+         <div class="text-2xl">
+          🔧
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800 text-sm">Problem Solving</h4>
+          <p class="text-gray-600 text-xs">Debugging complex robotics systems</p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <h3 class="text-2xl font-bold text-gray-800 mb-6">Lab Culture &amp; Atmosphere</h3>
+       <p class="text-gray-700 mb-4">The lab has a collaborative and supportive environment where undergraduate students are encouraged to ask questions, take initiative, and contribute meaningfully to research projects. Regular lab meetings and informal discussions foster learning and knowledge sharing.</p>
+       <div class="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-6 mt-4">
+        <div class="flex items-center gap-4">
+         <div class="text-5xl">
+          💡
+         </div>
+         <div>
+          <h4 class="font-bold text-gray-800 text-lg mb-1">What I Love Most</h4>
+          <p class="text-gray-700 text-sm">"The lab isn't just about completing projects—it's about learning to think like a researcher, ask better questions, and understand that failure is part of the scientific process."</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Subpage 6: Technical Skills Deep Dive -->
+    <section id="technical-skills" class="page-section mb-16" style="display: none;">
+     <div class="mb-8"><button onclick="navigateToPage('resume')" class="text-sky-600 hover:text-purple-600 font-semibold mb-4 inline-flex items-center"> ← Back to Resume </button>
+      <h1 class="heading-font text-5xl md:text-6xl font-bold gradient-text text-center mb-4">💻 Technical Skills</h1>
+      <p class="text-center text-gray-600">Detailed Breakdown of My Technical Capabilities</p>
+     </div>
+     <div class="max-w-4xl mx-auto"><!-- Python Section -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="text-6xl">
+         🐍
+        </div>
+        <div>
+         <h2 class="text-3xl font-bold text-gray-800">Python</h2>
+         <p class="text-sky-600 font-semibold">Advanced Level - 3+ years experience</p>
+        </div>
+       </div>
+       <div class="space-y-4">
+        <div>
+         <h3 class="text-lg font-bold text-gray-800 mb-2">What I Can Do:</h3>
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2"><span class="text-emerald-500">✓</span> <span class="text-gray-700 text-sm">ROS2 node development</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-emerald-500">✓</span> <span class="text-gray-700 text-sm">Data analysis &amp; visualization</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-emerald-500">✓</span> <span class="text-gray-700 text-sm">Control algorithms</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-emerald-500">✓</span> <span class="text-gray-700 text-sm">Automation scripts</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-emerald-500">✓</span> <span class="text-gray-700 text-sm">NumPy &amp; Matplotlib</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-emerald-500">✓</span> <span class="text-gray-700 text-sm">Object-oriented programming</span>
+          </div>
+         </div>
+        </div>
+        <div>
+         <h3 class="text-lg font-bold text-gray-800 mb-2">Recent Projects:</h3>
+         <ul class="space-y-2 text-gray-700 text-sm">
+          <li class="flex items-start gap-2"><span class="text-sky-500">→</span> <span>Inverse kinematics solver for quadruped robot</span></li>
+          <li class="flex items-start gap-2"><span class="text-sky-500">→</span> <span>Sensor data processing automation tool</span></li>
+          <li class="flex items-start gap-2"><span class="text-sky-500">→</span> <span>ROS2 publisher/subscriber nodes for autonomous navigation</span></li>
+         </ul>
+        </div>
+       </div>
+      </div><!-- ROS2 Section -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="text-6xl">
+         🤖
+        </div>
+        <div>
+         <h2 class="text-3xl font-bold text-gray-800">ROS2 (Robot Operating System 2)</h2>
+         <p class="text-purple-600 font-semibold">Proficient - Humble &amp; Hawksbill distributions</p>
+        </div>
+       </div>
+       <div class="space-y-4">
+        <div>
+         <h3 class="text-lg font-bold text-gray-800 mb-2">Core Competencies:</h3>
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="bg-sky-50 rounded-lg p-3">
+           <h4 class="font-bold text-gray-800 text-sm mb-1">Nodes &amp; Communication</h4>
+           <p class="text-gray-600 text-xs">Publisher, Subscriber, Services, Actions</p>
+          </div>
+          <div class="bg-purple-50 rounded-lg p-3">
+           <h4 class="font-bold text-gray-800 text-sm mb-1">Navigation Stack</h4>
+           <p class="text-gray-600 text-xs">Nav2, SLAM, Path Planning</p>
+          </div>
+          <div class="bg-emerald-50 rounded-lg p-3">
+           <h4 class="font-bold text-gray-800 text-sm mb-1">Sensor Integration</h4>
+           <p class="text-gray-600 text-xs">LiDAR, Camera, IMU</p>
+          </div>
+          <div class="bg-amber-50 rounded-lg p-3">
+           <h4 class="font-bold text-gray-800 text-sm mb-1">Launch Files</h4>
+           <p class="text-gray-600 text-xs">System configuration &amp; deployment</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- CAD & Design Section -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg mb-8">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="text-6xl">
+         📐
+        </div>
+        <div>
+         <h2 class="text-3xl font-bold text-gray-800">SolidWorks &amp; Mechanical Design</h2>
+         <p class="text-amber-600 font-semibold">Proficient - 2+ years experience</p>
+        </div>
+       </div>
+       <div class="space-y-4">
+        <div>
+         <h3 class="text-lg font-bold text-gray-800 mb-2">Design Capabilities:</h3>
+         <div class="space-y-2 text-gray-700 text-sm">
+          <div class="flex items-start gap-2"><span class="text-amber-500">▪</span> <span>3D part modeling and assembly design</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-amber-500">▪</span> <span>Technical drawings and dimensioning</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-amber-500">▪</span> <span>Mechanical linkage and gear design</span>
+          </div>
+          <div class="flex items-start gap-2"><span class="text-amber-500">▪</span> <span>Export for 3D printing and fabrication</span>
+          </div>
+         </div>
+        </div>
+        <div class="bg-gradient-to-r from-amber-100 to-orange-100 rounded-xl p-4">
+         <h4 class="font-bold text-gray-800 mb-2">Notable Design Projects:</h4>
+         <p class="text-gray-700 text-sm">Designed complete mechanical structure for quadruped robot including leg mechanisms, joint assemblies, and body frame</p>
+        </div>
+       </div>
+      </div><!-- Control Systems Section -->
+      <div class="bg-white rounded-2xl p-8 shadow-lg">
+       <div class="flex items-center gap-4 mb-6">
+        <div class="text-6xl">
+         ⚙️
+        </div>
+        <div>
+         <h2 class="text-3xl font-bold text-gray-800">Control Systems &amp; Algorithms</h2>
+         <p class="text-emerald-600 font-semibold">Advanced - Theoretical &amp; Practical Knowledge</p>
+        </div>
+       </div>
+       <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+         <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Theory:</h3>
+          <ul class="space-y-2 text-gray-700 text-sm">
+           <li>• PID control design</li>
+           <li>• State-space analysis</li>
+           <li>• Transfer functions</li>
+           <li>• Stability analysis</li>
+          </ul>
+         </div>
+         <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-3">Practice:</h3>
+          <ul class="space-y-2 text-gray-700 text-sm">
+           <li>• Inverse kinematics implementation</li>
+           <li>• Motor control algorithms</li>
+           <li>• Sensor fusion techniques</li>
+           <li>• Real-time control systems</li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-gradient-to-r from-sky-900 to-purple-900 text-white py-12 mt-16">
+    <div class="container mx-auto px-4">
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"><!-- Column 1: About -->
+      <div>
+       <h3 class="text-xl font-bold mb-4">Wenjun (Jessica) Huang</h3>
+       <p class="text-sky-200 text-sm">Sophomore at Beijing University of Chemical Technology. Bridging gears and stories—where engineering meets art.</p>
+      </div><!-- Column 2: Quick Links -->
+      <div>
+       <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+       <div class="space-y-2"><a href="#" onclick="navigateToPage('portfolio'); return false;" class="block text-sky-200 hover:text-white transition-colors text-sm">Portfolio</a> <a href="#" onclick="navigateToPage('resume'); return false;" class="block text-sky-200 hover:text-white transition-colors text-sm">Resume</a> <a href="#" onclick="navigateToPage('campus'); return false;" class="block text-sky-200 hover:text-white transition-colors text-sm">Campus Life</a> <a href="#" onclick="navigateToPage('contact'); return false;" class="block text-sky-200 hover:text-white transition-colors text-sm">Contact</a>
+       </div>
+      </div><!-- Column 3: Connect -->
+      <div>
+       <h3 class="text-xl font-bold mb-4">Connect</h3>
+       <div class="space-y-2 text-sm">
+        <p class="text-sky-200">📧 jessica.huang@buct.edu.cn</p>
+        <p class="text-sky-200">🏫 BUCT, Beijing, China</p>
+        <p class="text-sky-200">🤖 Robotics &amp; Automation</p>
+       </div>
+      </div>
+     </div>
+     <div class="border-t border-sky-700 pt-6 text-center">
+      <p class="text-sky-300 text-sm">© 2024 Wenjun (Jessica) Huang. Built with passion, code, and a bit of watercolor 🎨</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // ============================================
+    // GLOBAL STATE
+    // ============================================
+    const defaultConfig = {
+      name: "Wenjun (Jessica) Huang",
+      greeting: "Hello! I'm",
+      tagline: "Gears and stories – bridging engineering with human experiences",
+      description: "Sophomore at Beijing University of Chemical Technology, majoring in Mechanical Design, Manufacturing, and Automation. I believe the best work exists at the intersection of logic and creativity, where art needs engineering and engineering needs art.",
+      primary_color: "#0ea5e9",
+      secondary_color: "#a855f7",
+      accent_color: "#ff6b6b",
+      text_color: "#374151",
+      background_color: "#ffffff"
+    };
+
+    let config = { ...defaultConfig };
+
+    // EXP System
+    let currentExp = 0;
+    let maxExp = 100;
+    let level = 1;
+    let explorationPoints = 0;
+
+    // Tracking
+    let viewedProjects = new Set();
+    let visitedPages = new Set(['home']);
+    let clickedSkills = new Set();
+    let clickedValues = new Set();
+    let clickedSpots = new Set();
+    let clickedHobbies = new Set();
+    let startTime = Date.now();
+    let currentPage = 'home';
+
+    // Achievement System
+    let unlockedAchievements = new Set();
+    let avatarClickCount = 0;
+    
+    const achievements = {
+      first_explorer: { 
+        emoji: '🗺️', 
+        title: 'First Explorer', 
+        description: 'Visited your first page',
+        exp: 10,
+        condition: () => visitedPages.size >= 1 
+      },
+      page_hopper: { 
+        emoji: '🦘', 
+        title: 'Page Hopper', 
+        description: 'Visited 3 different pages',
+        exp: 20,
+        condition: () => visitedPages.size >= 3 
+      },
+      completionist: { 
+        emoji: '✨', 
+        title: 'Completionist', 
+        description: 'Visited all 6 pages',
+        exp: 50,
+        condition: () => visitedPages.size >= 6 
+      },
+      project_curious: { 
+        emoji: '🔍', 
+        title: 'Project Curious', 
+        description: 'Viewed your first project',
+        exp: 15,
+        condition: () => viewedProjects.size >= 1 
+      },
+      portfolio_master: { 
+        emoji: '💼', 
+        title: 'Portfolio Master', 
+        description: 'Viewed all 3 projects',
+        exp: 40,
+        condition: () => viewedProjects.size >= 3 
+      },
+      skill_seeker: { 
+        emoji: '🎯', 
+        title: 'Skill Seeker', 
+        description: 'Explored 3 skills',
+        exp: 15,
+        condition: () => clickedSkills.size >= 3 
+      },
+      tech_enthusiast: { 
+        emoji: '🛠️', 
+        title: 'Tech Enthusiast', 
+        description: 'Explored 6 skills',
+        exp: 30,
+        condition: () => clickedSkills.size >= 6 
+      },
+      skill_master: { 
+        emoji: '🏅', 
+        title: 'Skill Master', 
+        description: 'Explored all 9 skills',
+        exp: 50,
+        condition: () => clickedSkills.size >= 9 
+      },
+      speed_reader: { 
+        emoji: '⚡', 
+        title: 'Speed Reader', 
+        description: 'Spent 5 minutes exploring',
+        exp: 25,
+        condition: () => (Date.now() - startTime) >= 300000 
+      },
+      dedicated_visitor: { 
+        emoji: '⭐', 
+        title: 'Dedicated Visitor', 
+        description: 'Spent 10 minutes exploring',
+        exp: 50,
+        condition: () => (Date.now() - startTime) >= 600000 
+      },
+      avatar_fan: { 
+        emoji: '😄', 
+        title: 'Avatar Fan', 
+        description: 'Clicked the avatar 5 times',
+        exp: 20,
+        condition: () => avatarClickCount >= 5
+      },
+      level_5_hero: { 
+        emoji: '🚀', 
+        title: 'Level 5 Explorer', 
+        description: 'Reached Level 5 - Secret blessing unlocked!',
+        exp: 30,
+        condition: () => level >= 5 
+      },
+      level_10_legend: { 
+        emoji: '👑', 
+        title: 'Level 10 Legend', 
+        description: 'Reached Level 10',
+        exp: 100,
+        condition: () => level >= 10 
+      },
+      explorer_scholar: { 
+        emoji: '🎓', 
+        title: 'Explorer Scholar', 
+        description: 'Earned 50 exploration points',
+        exp: 40,
+        condition: () => explorationPoints >= 50 
+      },
+      renaissance_visitor: { 
+        emoji: '🌟', 
+        title: 'Renaissance Visitor', 
+        description: 'Viewed projects, skills, and all pages',
+        exp: 60,
+        condition: () => viewedProjects.size >= 2 && clickedSkills.size >= 5 && visitedPages.size >= 5 
+      }
+    };
+
+    // ============================================
+    // STATE MANAGEMENT
+    // ============================================
+    function saveState() {
+      const state = {
+        currentExp,
+        maxExp,
+        level,
+        explorationPoints,
+        viewedProjects: Array.from(viewedProjects),
+        visitedPages: Array.from(visitedPages),
+        clickedSkills: Array.from(clickedSkills),
+        clickedValues: Array.from(clickedValues),
+        clickedSpots: Array.from(clickedSpots),
+        clickedHobbies: Array.from(clickedHobbies),
+        unlockedAchievements: Array.from(unlockedAchievements),
+        avatarClickCount,
+        startTime
+      };
+      localStorage.setItem('portfolioState', JSON.stringify(state));
+    }
+
+    function loadState() {
+      const saved = localStorage.getItem('portfolioState');
+      if (saved) {
+        try {
+          const state = JSON.parse(saved);
+          currentExp = state.currentExp || 0;
+          maxExp = state.maxExp || 100;
+          level = state.level || 1;
+          explorationPoints = state.explorationPoints || 0;
+          viewedProjects = new Set(state.viewedProjects || []);
+          visitedPages = new Set(state.visitedPages || ['home']);
+          clickedSkills = new Set(state.clickedSkills || []);
+          clickedValues = new Set(state.clickedValues || []);
+          clickedSpots = new Set(state.clickedSpots || []);
+          clickedHobbies = new Set(state.clickedHobbies || []);
+          unlockedAchievements = new Set(state.unlockedAchievements || []);
+          avatarClickCount = state.avatarClickCount || 0;
+          startTime = state.startTime || Date.now();
+        } catch (e) {
+          console.error('Failed to load state:', e);
+        }
+      }
+    }
+
+    // ============================================
+    // RESET FUNCTION
+    // ============================================
+    function resetProgress() {
+      if (confirm("⚠️ Are you sure you want to reset all progress?\n\nThis will reset your level, experience, achievements, and all exploration data. This action cannot be undone!")) {
+        // Reset all state variables
+        currentExp = 0;
+        maxExp = 100;
+        level = 1;
+        explorationPoints = 0;
+        
+        viewedProjects = new Set();
+        visitedPages = new Set(['home']);
+        clickedSkills = new Set();
+        clickedValues = new Set();
+        clickedSpots = new Set();
+        clickedHobbies = new Set();
+        unlockedAchievements = new Set();
+        avatarClickCount = 0;
+        startTime = Date.now();
+        
+        // Reset UI
+        updateExpDisplay();
+        updateAchievementDisplay();
+        updateProgressStats();
+        updateAchievementsDisplay();
+        
+        // Hide secret button if shown
+        const secretBtn = document.getElementById('secret-nav-btn');
+        if (secretBtn) {
+          secretBtn.style.display = 'none';
+        }
+        
+        // Clear localStorage
+        localStorage.removeItem('portfolioState');
+        
+        // Show confirmation
+        showToast('🔄 All progress has been reset to Level 1!');
+        
+        // Navigate back to home
+        navigateToPage('home');
+        
+        // Small animation effect
+        const expContainer = document.querySelector('.exp-container');
+        expContainer.style.animation = 'level-up 0.6s ease';
+        setTimeout(() => {
+          expContainer.style.animation = '';
+        }, 600);
+      }
+    }
+
+    // ============================================
+    // PROJECT DATA
+    // ============================================
+    const projectData = {
+      project1: {
+        emoji: '🛒',
+        badge: 'Research',
+        badgeColor: 'bg-indigo-500',
+        title: 'Autonomous Wheeled Trolley',
+        description: 'Developed and integrated ROS2 nodes for sensor processing and motor control in Prof. Longfei Qie\'s lab at BUCT. The project focuses on creating an autonomous navigation system for indoor robotics applications.',
+        highlights: [
+          'Developed ROS2 (Humble/Hawksbill) nodes for sensor integration',
+          'Implemented motor control algorithms for autonomous navigation',
+          'Integrated multiple sensors for environment perception',
+          'Collaborated with graduate students on system architecture',
+          'Contributed to research documentation and technical presentations'
+        ],
+        tags: ['ROS2', 'Python', 'SLAM', 'Path Planning', 'Sensors']
+      },
+      project2: {
+        emoji: '🕷️',
+        badge: 'Independent',
+        badgeColor: 'bg-rose-500',
+        title: 'Quadruped Robot Development',
+        description: 'Designed and built a spider-like quadruped robot from scratch, implementing inverse kinematics control system in Python. The project demonstrates understanding of robotics fundamentals and mechanical design.',
+        highlights: [
+          'Designed mechanical structure and leg mechanisms',
+          'Implemented inverse kinematics in Python for leg control',
+          'Developed gait patterns for stable walking and turning',
+          'Prototyped using 3D printing and custom fabrication',
+          'Documented entire development process and technical decisions'
+        ],
+        tags: ['Python', 'Inverse Kinematics', 'Mechanical Design', 'Gait Control', 'Robotics']
+      },
+      project3: {
+        emoji: '📊',
+        badge: 'Tool',
+        badgeColor: 'bg-amber-500',
+        title: 'Data Analysis Tool',
+        description: 'Created Python scripts to process robotics sensor data and generate automated visual reports. This tool improves lab workflow efficiency by automating data processing and visualization tasks.',
+        highlights: [
+          'Developed automated data processing pipeline in Python',
+          'Generated visual reports and data visualizations',
+          'Processed sensor data from robotics experiments',
+          'Improved lab workflow efficiency through automation',
+          'Created reusable modules for data analysis tasks'
+        ],
+        tags: ['Python', 'Data Analysis', 'Visualization', 'Automation', 'Sensor Data']
+      }
+    };
+
+    // ============================================
+    // ACHIEVEMENT SYSTEM
+    // ============================================
+    function checkAchievements() {
+      for (const [key, achievement] of Object.entries(achievements)) {
+        if (!unlockedAchievements.has(key) && achievement.condition()) {
+          unlockAchievement(key, achievement);
+        }
+      }
+    }
+
+    function scrollToEXP() {
+      // 平滑滚动到EXP容器
+      const expContainer = document.querySelector('.exp-container');
+      if (expContainer) {
+        expContainer.style.animation = 'bounce 1s ease';
+        setTimeout(() => {
+          expContainer.style.animation = '';
+        }, 1000);
+        
+        // 显示当前进度
+        showToast(`📊 Level ${level}, ${currentExp}/${maxExp} EXP`);
+      }
+    }
+    // ============================================
+    // SECRET PAGE UNLOCK
+    // ============================================
+    function checkSecretPageUnlock() {
+      // Secret page unlocks when user reaches level 5
+      if (level >= 5) {
+        const secretBtn = document.getElementById('secret-nav-btn');
+        if (secretBtn && secretBtn.style.display === 'none') {
+          secretBtn.style.display = 'inline-block';
+          secretBtn.innerHTML = '🎁 Secret Blessing';
+          showToast('🎁 MYSTERY UNLOCKED! A secret blessing page has appeared in the navigation!');
+          createConfetti();
+          
+          updateSecretHint(); // 这会隐藏提示条
+          
+          // Show a special achievement-style notification
+          setTimeout(() => {
+            showAchievementNotification({
+              emoji: '🔓',
+              title: 'Secret Discovered!',
+              description: 'Click the button to see your exclusive blessing',
+              exp: 0
+            });
+          }, 1000);
+        }
+      }
+    }
+
+    function unlockAchievement(key, achievement) {
+      unlockedAchievements.add(key);
+      
+      // Show achievement notification
+      showAchievementNotification(achievement);
+      
+      // Add EXP bonus
+      if (achievement.exp) {
+        addExp(achievement.exp);
+      }
+      
+      // Update achievements display
+      updateAchievementsDisplay();
+      
+      // Confetti effect for special achievements
+      if (['completionist', 'portfolio_master', 'skill_master', 'level_5_hero', 'level_10_legend'].includes(key)) {
+        createConfetti();
+      }
+      
+      saveState();
+    }
+
+    function showAchievementNotification(achievement) {
+      const container = document.getElementById('achievement-container');
+      
+      const card = document.createElement('div');
+      card.className = 'achievement-card bg-white rounded-xl p-4 shadow-xl border-2 border-amber-400 max-w-sm';
+      card.innerHTML = `
+        <div class="flex items-center gap-3">
+          <div class="text-4xl">${achievement.emoji}</div>
+          <div class="flex-1">
+            <div class="text-xs text-amber-600 font-bold mb-1">🎉 ACHIEVEMENT UNLOCKED!</div>
+            <div class="font-bold text-gray-800">${achievement.title}</div>
+            <div class="text-xs text-gray-600">${achievement.description}</div>
+            ${achievement.exp ? `<div class="text-xs text-purple-600 font-semibold mt-1">+${achievement.exp} EXP Bonus!</div>` : ''}
+          </div>
+        </div>
+      `;
+      
+      container.appendChild(card);
+      
+      // Auto-remove after 4 seconds
+      setTimeout(() => {
+        card.classList.add('hiding');
+        setTimeout(() => {
+          card.remove();
+        }, 500);
+      }, 4000);
+    }
+
+    function createConfetti() {
+      const colors = ['#0ea5e9', '#a855f7', '#ff6b6b', '#fbbf24', '#34d399'];
+      const confettiCount = 50;
+      
+      for (let i = 0; i < confettiCount; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.animation = `confetti-fall ${2 + Math.random() * 2}s linear`;
+          confetti.style.animationDelay = Math.random() * 0.5 + 's';
+          
+          document.body.appendChild(confetti);
+          
+          setTimeout(() => {
+            confetti.remove();
+          }, 4000);
+        }, i * 20);
+      }
+    }
+
+    function updateAchievementsDisplay() {
+      const grid = document.getElementById('unlocked-achievements-grid');
+      const noMessage = document.getElementById('no-achievements-message');
+      const countDisplay = document.getElementById('achievement-count');
+      
+      if (countDisplay) {
+        countDisplay.textContent = unlockedAchievements.size;
+      }
+      
+      if (unlockedAchievements.size === 0) {
+        noMessage.style.display = 'block';
+        grid.innerHTML = '';
+        return;
+      }
+      
+      noMessage.style.display = 'none';
+      grid.innerHTML = '';
+      
+      unlockedAchievements.forEach(key => {
+        const achievement = achievements[key];
+        if (!achievement) return;
+        
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-xl p-6 shadow-lg border-2 border-amber-200 hover:shadow-xl transition-shadow';
+        card.innerHTML = `
+          <div class="text-center">
+            <div class="text-6xl mb-3">${achievement.emoji}</div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">${achievement.title}</h3>
+            <p class="text-sm text-gray-600 mb-3">${achievement.description}</p>
+            ${achievement.exp ? `<div class="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">+${achievement.exp} EXP</div>` : ''}
+          </div>
+        `;
+        
+        grid.appendChild(card);
+      });
+    }
+
+    // ============================================
+    // EXP SYSTEM FUNCTIONS
+    // ============================================
+    function addExp(amount) {
+      // Add visual feedback
+      const expContainer = document.querySelector('.exp-container');
+      expContainer.classList.add('level-up-flash');
+      setTimeout(() => {
+        expContainer.classList.remove('level-up-flash');
+      }, 1500);
+      
+      // Create floating EXP number
+      if (amount > 0) {
+        createFloatingExp(amount);
+      }
+      
+      currentExp += amount;
+      
+      while (currentExp >= maxExp) {
+        levelUp();
+      }
+      
+      updateExpDisplay();
+      checkAchievements();
+      saveState();
+    }
+
+    // Create floating EXP number effect
+    function createFloatingExp(amount) {
+      const expContainer = document.querySelector('.exp-container');
+      const floatingExp = document.createElement('div');
+      floatingExp.className = 'floating-exp';
+      floatingExp.textContent = `+${amount} EXP`;
+      
+      expContainer.appendChild(floatingExp);
+      
+      // Auto-remove
+      setTimeout(() => {
+        floatingExp.remove();
+      }, 1500);
+    }
+
+    function levelUp() {
+      currentExp = currentExp - maxExp;
+      level++;
+      maxExp = Math.floor(level * 100 * 1.1);
+      explorationPoints += 10;
+      
+      // === 添加这两行 ===
+      updateSecretHint();
+      checkSecretPageUnlock();
+      // ==================
+      
+      showLevelUpCelebration();
+      
+      const expContainer = document.querySelector('.exp-container');
+      expContainer.style.animation = 'level-up 0.6s ease';
+      setTimeout(() => {
+        expContainer.style.animation = '';
+      }, 600);
+
+      updateAchievementDisplay();
+      checkAchievements();
+      saveState();
+    }
+
+    function showLevelUpCelebration() {
+      const celebration = document.getElementById('level-up-celebration');
+      const emoji = document.getElementById('celebration-emoji');
+      const title = document.getElementById('celebration-title');
+      const message = document.getElementById('celebration-message');
+      
+      // Different messages based on level milestones
+      const milestones = {
+        2: { 
+          emoji: '🌟', 
+          title: 'Keep Going!', 
+          message: 'You\'ve reached Level 2! Continue exploring different pages to earn experience. Tip: Click on project cards and skills for bonus EXP!' 
+        },
+        3: { 
+          emoji: '🔥', 
+          title: 'Getting Stronger!', 
+          message: 'Level 3! You\'re doing great! Keep exploring to unlock something special at Level 5... 🤫' 
+        },
+        5: { 
+          emoji: '🎁', 
+          title: 'Secret Blessing Unlocked!', 
+          message: 'You\'ve reached Level 5! A new button appeared in the navigation bar... Go discover your special blessing! 🔓' 
+        },
+        7: { 
+          emoji: '🚀', 
+          title: 'Master Explorer!', 
+          message: 'Level 7! Your dedication is incredible!' 
+        },
+        10: { 
+          emoji: '💎', 
+          title: 'Legendary Explorer!', 
+          message: 'Level 10! You\'re a true exploration master!' 
+        },
+        15: { 
+          emoji: '👑', 
+          title: 'Ultimate Explorer!', 
+          message: 'Level 15! Absolutely incredible!' 
+        }
+      };
+      
+      const milestone = milestones[level];
+      if (milestone) {
+        emoji.textContent = milestone.emoji;
+        title.textContent = milestone.title;
+        message.textContent = milestone.message;
+      } else {
+        emoji.textContent = '  ';
+        title.textContent = `Level ${level} Achieved!`;
+        message.textContent = `You've reached Level ${level}! Earned +10 exploration points!`;
+      }
+      
+      celebration.style.display = 'flex';
+      createConfetti();
+    }
+
+    function closeCelebration() {
+      document.getElementById('level-up-celebration').style.display = 'none';
+    }
+
+    function updateExpDisplay() {
+      document.getElementById('level').textContent = level;
+      document.getElementById('current-exp').textContent = currentExp;
+      document.getElementById('max-exp').textContent = maxExp;
+      document.getElementById('exploration-points').textContent = explorationPoints;
+      
+      const percentage = (currentExp / maxExp) * 100;
+      document.getElementById('exp-fill').style.width = percentage + '%';
+    }
+
+    function updateAchievementDisplay() {
+      document.getElementById('achievement-level').textContent = level;
+      document.getElementById('achievement-points').textContent = explorationPoints;
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toast-message');
+      
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+    // 修改updateSecretHint函数
+    function updateSecretHint() {
+      const hint = document.getElementById('secret-hint');
+      if (hint) {
+        if (level < 5) {
+          // 显示提示条（带滑动动画）
+          setTimeout(() => {
+            hint.classList.remove('translate-y-full');
+            hint.classList.add('-translate-y-0');
+          }, 500); // 延迟显示，让页面先加载
+          
+          // 随机消息逻辑保持不变...
+          if (!hint.hasAttribute('data-message-set')) {
+            const messages = [
+              "🔓 Reach Level 5 to unlock a secret blessing!",
+              "🌟 Keep exploring! Secret page unlocks at Level 5",
+              "🎁 Something special awaits at Level 5...",
+              "💫 Explore more pages and projects to level up!",
+              "🔑 Level 5 unlocks a hidden surprise!"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            hint.querySelector('span:nth-child(2)').textContent = randomMessage;
+            hint.setAttribute('data-message-set', 'true');
+          }
+        } else {
+          // 隐藏提示条（向上滑动）
+          hint.classList.add('translate-y-full');
+          hint.classList.remove('-translate-y-0');
+        }
+      }
+    }
+
+    // 添加这个函数来平滑滚动到EXP容器
+    function scrollToEXP() {
+      const expContainer = document.querySelector('.exp-container');
+      if (expContainer) {
+        // 先滚动到顶部（因为EXP容器是fixed定位在顶部的）
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // 给EXP容器添加高亮效果
+        expContainer.style.animation = 'pulse-glow 1.5s ease-in-out';
+        setTimeout(() => {
+          expContainer.style.animation = '';
+        }, 1500);
+        
+        // 显示当前进度
+        showToast(`📊 Level ${level}, ${currentExp}/${maxExp} EXP (Need ${maxExp - currentExp} more for next level)`);
+      }
+    }
+
+    // ============================================
+    // SECRET HINT FUNCTIONS
+    // ============================================
+    function updateSecretHint() {
+      const hint = document.getElementById('secret-hint');
+      if (hint) {
+        if (level < 5) {
+          hint.classList.remove('hidden');
+          
+          // 每30秒随机显示不同的提示信息
+          const messages = [
+            "🔓 Reach Level 5 to unlock a secret blessing!",
+            "🌟 Keep exploring! Secret page unlocks at Level 5",
+            "🎁 Something special awaits at Level 5...",
+            "💫 Explore more pages and projects to level up!",
+            "🔑 Level 5 unlocks a hidden surprise!"
+          ];
+          
+          // 随机选择一个消息（每隔30秒）
+          if (!hint.hasAttribute('data-message-set')) {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            hint.innerHTML = `${randomMessage} 
+              <button onclick="scrollToEXP()" class="ml-2 px-2 py-1 bg-white text-amber-600 text-xs rounded-full hover:bg-amber-50 transition-colors">
+                Check Progress →
+              </button>`;
+            hint.setAttribute('data-message-set', 'true');
+          }
+        } else {
+          hint.classList.add('hidden');
+        }
+      }
+    }
+
+    function scrollToEXP() {
+      // 平滑滚动到EXP容器
+      const expContainer = document.querySelector('.exp-container');
+      if (expContainer) {
+        expContainer.style.animation = 'bounce 1s ease';
+        setTimeout(() => {
+          expContainer.style.animation = '';
+        }, 1000);
+        
+        // 显示当前进度
+        showToast(`📊 Level ${level}, ${currentExp}/${maxExp} EXP`);
+      }
+    }
+    function scrollToEXP() {
+      // 平滑滚动到EXP容器
+      const expContainer = document.querySelector('.exp-container');
+      if (expContainer) {
+        expContainer.style.animation = 'bounce 1s ease';
+        setTimeout(() => {
+          expContainer.style.animation = '';
+        }, 1000);
+        
+        // 显示当前进度
+        showToast(`📊 Level ${level}, ${currentExp}/${maxExp} EXP`);
+      }
+    }
+    
+
+    function checkSecretPage() {
+      if (level >= 5) {
+        navigateToPage('secret');
+        
+        // Update secret page stats
+        document.getElementById('secret-level').textContent = level;
+        document.getElementById('secret-points').textContent = explorationPoints;
+        document.getElementById('secret-achievements').textContent = unlockedAchievements.size;
+        
+        // Award massive EXP bonus for first visit
+        if (!visitedPages.has('secret')) {
+          addExp(50);
+          showToast('🎉 +50 EXP BONUS! You found the ultimate secret!');
+          createConfetti();
+        }
+      } else {
+        showToast(`🔒 Reach Level 5 to unlock this secret blessing! (Current: Level ${level})`);
+      }
+    }
+
+    // ============================================
+    // NAVIGATION FUNCTIONS
+    // ============================================
+    function navigateToPage(pageId) {
+      // Check if trying to access secret page
+      if (pageId === 'secret' && level < 5) {
+        showToast(`🔒 Secret blessing locked! Reach Level 5 to unlock. (Current: Level ${level})`);
+        return;
+      }
+      
+      // Track page visit before navigation
+      if (!visitedPages.has(pageId) && pageId !== 'secret') {
+        visitedPages.add(pageId);
+        addExp(10);
+        showToast(`✨ +10 EXP: Explored ${pageId.charAt(0).toUpperCase() + pageId.slice(1)}!`);
+      } else if (pageId === 'secret' && !visitedPages.has(pageId)) {
+        visitedPages.add(pageId);
+        // Update secret page stats
+        document.getElementById('secret-level').textContent = level;
+        document.getElementById('secret-points').textContent = explorationPoints;
+        document.getElementById('secret-achievements').textContent = unlockedAchievements.size;
+      }
+
+      currentPage = pageId;
+      updateProgressStats();
+      checkAchievements();
+      
+      // Save state to localStorage
+      saveState();
+      
+      // Hide all sections first
+      const allSections = document.querySelectorAll('section[id]');
+      allSections.forEach(section => {
+        if (section.classList.contains('page-section') || section.id === 'home') {
+          section.style.display = 'none';
+        }
+      });
+      
+      // Show target section
+      const targetSection = document.getElementById(pageId);
+      if (targetSection) {
+        targetSection.style.display = 'block';
+        window.location.hash = pageId;
+        
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Update navigation buttons
+        updateActiveNavButton(pageId);
+        
+        // Animate skill bars if on resume page
+        if (pageId === 'resume') {
+          setTimeout(animateSkillBars, 300);
+        }
+        
+        // Update achievements display if on achievements page
+        if (pageId === 'achievements') {
+          updateAchievementsDisplay();
+        }
+      }
+    }
+
+    function updateActiveNavButton(pageId) {
+      const navButtons = document.querySelectorAll('.nav-btn');
+      navButtons.forEach(btn => {
+        const btnPage = btn.getAttribute('data-page');
+        if (btnPage === pageId) {
+          btn.classList.add('nav-btn-active');
+          btn.classList.remove('bg-white', 'text-gray-700');
+        } else {
+          btn.classList.remove('nav-btn-active');
+          if (!btn.classList.contains('bg-gradient-to-r')) {
+            btn.classList.add('bg-white', 'text-gray-700');
+          }
+        }
+      });
+    }
+
+    // ============================================
+    // PROJECT MODAL FUNCTIONS
+    // ============================================
+    function openProjectModal(projectId) {
+      const project = projectData[projectId];
+      if (!project) return;
+
+      const modal = document.getElementById('project-modal');
+      const modalContent = document.getElementById('modal-content');
+
+      // Build modal HTML
+      const projectImages = {
+        project1: 'https://i.ibb.co/1JXDvJPB/e6b7b87018e86216f50142dbc0425822.jpg',
+        project2: 'https://i.ibb.co/N6hmqnQ6/.-2240-5.jpg',
+        project3: ''
+      };
+      
+      const projectImageUrl = projectImages[projectId];
+      const imageHTML = projectImageUrl 
+        ? `<img src="${projectImageUrl}" alt="${project.title}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'text-9xl\'>${project.emoji}</div>';">`
+        : `<div class="text-9xl">${project.emoji}</div>`;
+      
+      modalContent.innerHTML = `
+        <div class="relative">
+          <button onclick="closeProjectModal()" class="absolute top-4 right-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 transition-colors z-10">
+            <span class="text-gray-600 text-xl">✕</span>
+          </button>
+          
+          <div class="bg-gradient-to-br from-sky-400 to-purple-500 h-64 flex items-center justify-center text-white rounded-t-2xl overflow-hidden">
+            ${imageHTML}
+          </div>
+          
+          <div class="p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="px-4 py-2 ${project.badgeColor} text-white text-sm font-bold rounded-full">${project.badge}</span>
+            </div>
+            
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">${project.title}</h2>
+            
+            <p class="text-gray-700 leading-relaxed mb-6">${project.description}</p>
+            
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Key Highlights:</h3>
+            <ul class="space-y-3 mb-6">
+              ${project.highlights.map(highlight => `
+                <li class="flex items-start text-gray-700">
+                  <span class="text-sky-500 mr-3 mt-1">✓</span>
+                  <span>${highlight}</span>
+                </li>
+              `).join('')}
+            </ul>
+            
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Technologies Used:</h3>
+            <div class="flex flex-wrap gap-2">
+              ${project.tags.map(tag => `
+                <span class="px-3 py-2 bg-gradient-to-r from-sky-500 to-purple-500 text-white text-sm font-semibold rounded-full">${tag}</span>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+
+      modal.style.display = 'flex';
+      
+      // Award EXP if first time viewing
+      if (!viewedProjects.has(projectId)) {
+        viewedProjects.add(projectId);
+        addExp(15);
+        showToast(`🎉 +15 EXP: Viewed ${project.title}!`);
+        updateProgressStats();
+        checkAchievements();
+        saveState();
+      }
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('project-modal');
+      modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    document.getElementById('project-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeProjectModal();
+      }
+    });
+
+    // ============================================
+    // SKILL INTERACTION
+    // ============================================
+    function clickSkill(skillId) {
+      if (!clickedSkills.has(skillId)) {
+        clickedSkills.add(skillId);
+        addExp(5);
+        showToast(`💡 +5 EXP: Explored ${skillId.toUpperCase()} skill!`);
+        updateProgressStats();
+        checkAchievements();
+        saveState();
+      }
+    }
+
+    // ============================================
+    // VALUE CARD INTERACTION
+    // ============================================
+    function clickValueCard(valueId) {
+      if (!clickedValues.has(valueId)) {
+        clickedValues.add(valueId);
+        addExp(3);
+        showToast(`✨ +3 EXP: Learned about my values!`);
+        checkAchievements();
+        saveState();
+      }
+    }
+
+    // ============================================
+    // CAMPUS SPOT INTERACTION
+    // ============================================
+    function clickCampusSpot(spotId) {
+      if (!clickedSpots.has(spotId)) {
+        clickedSpots.add(spotId);
+        addExp(4);
+        showToast(`🏫 +4 EXP: Discovered campus spot!`);
+        checkAchievements();
+        saveState();
+      }
+    }
+
+    // ============================================
+    // HOBBY INTERACTION
+    // ============================================
+    function clickHobby(hobbyId) {
+      if (!clickedHobbies.has(hobbyId)) {
+        clickedHobbies.add(hobbyId);
+        addExp(3);
+        showToast(`🎯 +3 EXP: Explored my hobbies!`);
+        checkAchievements();
+        saveState();
+      }
+    }
+
+    // ============================================
+    // AVATAR INTERACTION
+    // ============================================
+    function clickAvatar() {
+      avatarClickCount++;
+      
+      const messages = [
+        '👋 Hi there! +2 EXP',
+        '🎉 Keep clicking! +2 EXP',
+        '✨ You found a secret! +5 EXP',
+        '🚀 Amazing! +5 EXP',
+        '💫 Legendary click! +10 EXP'
+      ];
+      
+      let expGain = 2;
+      let message = messages[0];
+      
+      if (avatarClickCount === 3) {
+        expGain = 5;
+        message = messages[2];
+      } else if (avatarClickCount === 5) {
+        expGain = 5;
+        message = messages[3];
+        checkAchievements(); // Check for avatar_fan achievement
+      } else if (avatarClickCount >= 10) {
+        expGain = 10;
+        message = messages[4];
+      } else if (avatarClickCount > 1) {
+        message = messages[1];
+      }
+      
+      addExp(expGain);
+      showToast(message);
+      
+      const avatar = document.querySelector('.avatar-container');
+      avatar.style.animation = 'level-up 0.5s ease';
+      setTimeout(() => {
+        avatar.style.animation = '';
+      }, 500);
+      
+      saveState();
+    }
+
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-bar-fill');
+      skillBars.forEach((bar, index) => {
+        const targetWidth = bar.getAttribute('data-width');
+        setTimeout(() => {
+          bar.style.width = targetWidth + '%';
+        }, index * 100);
+      });
+    }
+
+    // ============================================
+    // PROGRESS STATS
+    // ============================================
+    function updateProgressStats() {
+      // Pages visited
+      const pagesCount = visitedPages.size;
+      document.getElementById('stat-pages').textContent = pagesCount;
+      document.getElementById('stat-pages-bar').style.width = (pagesCount / 6 * 100) + '%';
+
+      // Projects viewed
+      const projectsCount = viewedProjects.size;
+      document.getElementById('stat-projects').textContent = projectsCount;
+      document.getElementById('stat-projects-bar').style.width = (projectsCount / 3 * 100) + '%';
+
+      // Time spent (in minutes)
+      const timeSpent = Math.floor((Date.now() - startTime) / 60000);
+      document.getElementById('stat-time').textContent = timeSpent;
+      document.getElementById('stat-time-bar').style.width = Math.min(timeSpent / 10 * 100, 100) + '%';
+
+      // Skills clicked
+      const skillsCount = clickedSkills.size;
+      document.getElementById('stat-skills').textContent = skillsCount;
+      document.getElementById('stat-skills-bar').style.width = (skillsCount / 9 * 100) + '%';
+
+      // Exploration rate
+      const totalPossible = 6 + 3 + 9; // 6 pages + 3 projects + 9 skills
+      const totalExplored = pagesCount + projectsCount + skillsCount;
+      const explorationRate = Math.floor((totalExplored / totalPossible) * 100);
+      document.getElementById('stat-rate').textContent = explorationRate;
+      document.getElementById('stat-rate-bar').style.width = explorationRate + '%';
+    }
+
+    // Update time every minute and check time-based achievements
+    setInterval(() => {
+      if (currentPage === 'achievements') {
+        updateProgressStats();
+      }
+      checkAchievements(); // Check time-based achievements
+    }, 60000);
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    function initialize() {
+      // Load saved state
+      loadState();
+      
+      // Get current page from hash or default to home
+      const hash = window.location.hash.slice(1);
+      currentPage = hash || 'home';
+      
+      // Hide all sections
+      const allSections = document.querySelectorAll('section[id]');
+      allSections.forEach(section => {
+        if (section.classList.contains('page-section') || section.id === 'home') {
+          section.style.display = 'none'; updateSecretHint();
+        }
+      });
+      
+      // Show current page
+      const currentSection = document.getElementById(currentPage);
+      if (currentSection) {
+        currentSection.style.display = 'block';
+      } else {
+        // Fallback to home if page not found
+        document.getElementById('home').style.display = 'block';
+        currentPage = 'home';
+      }
+      
+      // Update displays
+      updateExpDisplay();
+      updateAchievementDisplay();
+      updateProgressStats();
+      updateActiveNavButton(currentPage);
+      updateAchievementsDisplay();
+      
+      // Animate skill bars if on resume page
+      if (currentPage === 'resume') {
+        setTimeout(animateSkillBars, 300);
+      }
+      
+      // Welcome message only on first visit
+      if (!localStorage.getItem('portfolioState')) {
+        setTimeout(() => {
+          showToast('👋 Welcome! Start exploring to earn experience and unlock achievements!');
+          addExp(5);
+          saveState();
+        }, 1000);
+        
+        // Show hint about secret page after 3 seconds
+        setTimeout(() => {
+          showToast('💡 Hint: Explore all pages and reach Level 5 for a surprise... 🎁');
+        }, 4000);
+      }
+      
+      // Check for any achievements on load
+      checkAchievements();
+      
+      // Check if secret page should be unlocked
+      checkSecretPageUnlock();
+      updateSecretHint();
+    }
+
+    // ============================================
+    // ELEMENT SDK IMPLEMENTATION
+    // ============================================
+    async function onConfigChange(newConfig) {
+      document.getElementById('hero-name').textContent = newConfig.name || defaultConfig.name;
+      document.getElementById('hero-greeting').textContent = newConfig.greeting || defaultConfig.greeting;
+      document.getElementById('hero-tagline').textContent = newConfig.tagline || defaultConfig.tagline;
+      document.getElementById('hero-description').textContent = newConfig.description || defaultConfig.description;
+
+      const primaryColor = newConfig.primary_color || defaultConfig.primary_color;
+      const secondaryColor = newConfig.secondary_color || defaultConfig.secondary_color;
+      
+      const gradientElements = document.querySelectorAll('.gradient-text');
+      gradientElements.forEach(el => {
+        el.style.backgroundImage = `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
+      });
+
+      const primaryButtons = document.querySelectorAll('.bg-gradient-to-r.from-sky-500');
+      primaryButtons.forEach(btn => {
+        btn.style.backgroundImage = `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`;
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig: defaultConfig,
+        onConfigChange: onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => {
+                config.secondary_color = value;
+                window.elementSdk.setConfig({ secondary_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["name", config.name || defaultConfig.name],
+          ["greeting", config.greeting || defaultConfig.greeting],
+          ["tagline", config.tagline || defaultConfig.tagline],
+          ["description", config.description || defaultConfig.description]
+        ])
+      });
+    }
+
+    // Start the app
+    initialize();
+  </script>
+ </body>
+</html>
